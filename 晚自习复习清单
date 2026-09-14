@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高三晚自习复习清单 💗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #fff0f6;
+            padding: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #c85a84;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+        h1::before {
+            content: "♡ ";
+        }
+        h1::after {
+            content: " ♡";
+        }
+        .input-area {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px #e8b8cc;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #f2c6d8;
+            border-radius: 10px;
+            font-size: 16px;
+            outline-color: #e889b0;
+        }
+        #taskName {
+            flex: 1;
+            min-width: 200px;
+        }
+        #taskMin {
+            width: 120px;
+        }
+        #addBtn {
+            padding: 10px 18px;
+            background-color: #e878a2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size:16px;
+            transition: 0.2s;
+        }
+        #addBtn:hover {
+            background-color: #d45c8b;
+        }
+        .stat {
+            background: #fff;
+            padding:16px 20px;
+            border-radius:16px;
+            margin-bottom:20px;
+            box-shadow:0 2px 10px #e8b8cc;
+            font-size:17px;
+            color:#b04b75;
+        }
+        .stat::before{
+            content:"♡ 剩余复习总时长：";
+        }
+        .task-list {
+            background: #fff;
+            border-radius:16px;
+            box-shadow:0 2px 10px #e8b8cc;
+            overflow:hidden;
+        }
+        .task-item {
+            padding:14px 20px;
+            border-bottom: 1px solid #ffe6ef;
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .task-item:last-child{
+            border-bottom:none;
+        }
+        .task-name {
+            flex:1;
+            font-size:16px;
+            color:#55283c;
+        }
+        .task-min {
+            color:#c2678c;
+        }
+        .completed .task-name{
+            text-decoration: line-through;
+            color:#d8a1b6;
+        }
+        input[type="checkbox"]{
+            width:18px;
+            height:18px;
+            accent-color: #e878a2;
+        }
+    </style>
+</head>
+<body>
+    <h1>高三晚自习复习清单</h1>
+
+    <div class="input-area">
+        <input id="taskName" placeholder="输入复习任务，例：数学错题整理">
+        <input id="taskMin" placeholder="时长(1~180整数)" type="number">
+        <button id="addBtn">添加任务 💗</button>
+    </div>
+
+    <div class="stat">
+        <span id="totalMin">0</span> 分钟
+    </div>
+
+    <div class="task-list" id="taskListWrap"></div>
+
+<script>
+    // ========== 状态：内存任务数组 ==========
+    let tasks = [];
+
+    const nameInput = document.getElementById('taskName');
+    const minInput = document.getElementById('taskMin');
+    const addBtn = document.getElementById('addBtn');
+    const listWrap = document.getElementById('taskListWrap');
+    const totalDom = document.getElementById('totalMin');
+
+    // ========== 渲染函数：更新列表 + 计算未完成总时长 ==========
+    function renderList() {
+        let unFinishTotal = 0;
+        let html = '';
+
+        tasks.forEach((item, index) => {
+            if (!item.completed) {
+                unFinishTotal += item.minutes;
+            }
+            html += `
+                <div class="task-item ${item.completed ? 'completed' : ''}">
+                    <input type="checkbox" data-index="${index}" ${item.completed ? 'checked' : ''}>
+                    <div class="task-name">${item.name}</div>
+                    <div class="task-min">${item.minutes}分钟 ♡</div>
+                </div>
+            `
+        })
+        listWrap.innerHTML = html;
+        totalDom.textContent = unFinishTotal;
+
+        // 绑定每一项复选框点击事件
+        const checkboxes = listWrap.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(cb => {
+            cb.onclick = function() {
+                const idx = Number(this.dataset.index);
+                tasks[idx].completed = this.checked;
+                renderList();
+            }
+        })
+    }
+
+    // ========== 事件：添加任务按钮点击 ==========
+    addBtn.onclick = function() {
+        const name = nameInput.value.trim();
+        const minStr = minInput.value.trim();
+        const minNum = Number(minStr);
+
+        // 校验规则
+        if (!name) {
+            alert("任务名称不能为空！");
+            return;
+        }
+        if (minStr === '' || isNaN(minNum)) {
+            alert("请填写有效的时长！");
+            return;
+        }
+        // 判断是否为整数，范围1~180
+        if (!Number.isInteger(minNum) || minNum < 1 || minNum > 180) {
+            alert("时长必须是1~180之间的整数！");
+            return;
+        }
+
+        // 新增任务
+        tasks.push({
+            name: name,
+            minutes: minNum,
+            completed: false
+        })
+        // 清空输入框
+        nameInput.value = '';
+        minInput.value = '';
+        renderList();
+    }
+</script>
+</body>
+</html>
