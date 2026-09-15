@@ -4,21 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nancy Cong ♡ Portfolio</title>
+<title>Nancy Cong ♡</title>
+
+<!-- American-style fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
 
 :root {
-    --pink: #e889ad;
-    --pink-dark: #d45f8d;
-    --pink-light: #fff0f6;
-    --pink-soft: #ffe1ed;
-    --text: #25212a;
-    --text-light: #77717b;
+    --pink: #e879a9;
+    --hot-pink: #d95791;
+    --light-pink: #fff0f6;
+    --soft-pink: #ffe1ed;
+    --blush: #ffd0e1;
+    --text: #29232b;
+    --muted: #817681;
     --white: #ffffff;
-    --border: rgba(216, 112, 153, 0.18);
-    --shadow: 0 20px 60px rgba(203, 91, 137, 0.13);
+    --card: rgba(255,255,255,0.78);
+    --shadow: 0 20px 60px rgba(214, 104, 150, 0.15);
 }
 
 * {
@@ -33,55 +38,45 @@ html {
 
 body {
     font-family: "DM Sans", sans-serif;
-    background: var(--pink-light);
+    background:
+        radial-gradient(circle at 10% 10%, #ffdce9 0, transparent 25%),
+        radial-gradient(circle at 90% 20%, #ffe8f1 0, transparent 25%),
+        linear-gradient(135deg, #fff8fb, #fff0f6);
     color: var(--text);
     overflow-x: hidden;
-    transition: background 0.4s ease, color 0.4s ease;
+    transition: background 0.5s, color 0.5s;
 }
 
 /* =========================
-   DARK MODE
-========================= */
-
-body.dark {
-    --pink-light: #20171d;
-    --white: #2b2027;
-    --text: #fff5f8;
-    --text-light: #c7afb9;
-    --border: rgba(255, 173, 205, 0.18);
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-}
-
-/* =========================
-   FLOATING DECORATIONS
+   Floating decorations
 ========================= */
 
 .decor {
     position: fixed;
     pointer-events: none;
     z-index: 0;
-    color: var(--pink);
-    opacity: 0.35;
     animation: float 5s ease-in-out infinite;
 }
 
 .heart1 {
     top: 18%;
-    left: 5%;
+    left: 4%;
     font-size: 28px;
+    color: #ed8db3;
 }
 
 .heart2 {
-    top: 70%;
-    right: 6%;
-    font-size: 35px;
-    animation-delay: 1.5s;
+    top: 65%;
+    right: 5%;
+    font-size: 22px;
+    color: #e979a7;
+    animation-delay: 1s;
 }
 
 .bow1 {
-    top: 35%;
-    right: 4%;
-    font-size: 30px;
+    top: 12%;
+    right: 8%;
+    font-size: 35px;
     animation-delay: 2s;
 }
 
@@ -89,50 +84,56 @@ body.dark {
     bottom: 10%;
     left: 7%;
     font-size: 25px;
-    animation-delay: 3s;
+    animation-delay: 1.5s;
+}
+
+.sparkle {
+    color: #ef9cbd;
+    font-size: 24px;
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
     }
     50% {
-        transform: translateY(-18px) rotate(5deg);
+        transform: translateY(-15px) rotate(4deg);
     }
 }
 
 /* =========================
-   NAVIGATION
+   Navigation
 ========================= */
 
 nav {
     position: fixed;
-    top: 20px;
+    top: 18px;
     left: 50%;
     transform: translateX(-50%);
     width: min(92%, 1050px);
-    padding: 13px 18px;
-    background: rgba(255,255,255,0.78);
-    backdrop-filter: blur(18px);
-    border: 1px solid var(--border);
+    padding: 14px 22px;
     border-radius: 50px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 10px 35px rgba(202,110,150,0.12);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
-    box-shadow: 0 10px 35px rgba(200, 100, 140, 0.08);
-}
-
-body.dark nav {
-    background: rgba(43,32,39,0.82);
+    z-index: 1000;
 }
 
 .logo {
     font-family: "Playfair Display", serif;
-    font-size: 21px;
-    color: var(--pink-dark);
-    text-decoration: none;
-    padding-left: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--hot-pink);
+}
+
+.logo span {
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
 }
 
 .nav-links {
@@ -143,34 +144,33 @@ body.dark nav {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text);
-    font-size: 13px;
+    color: #5e515a;
+    font-size: 14px;
     font-weight: 600;
-    transition: color 0.25s;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--pink-dark);
+    color: var(--hot-pink);
 }
 
-.theme-btn {
+.theme-toggle {
     border: none;
-    background: var(--pink-soft);
-    color: var(--pink-dark);
+    background: #ffe5ef;
     width: 38px;
     height: 38px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 17px;
-    transition: transform 0.3s;
+    transition: 0.3s;
 }
 
-.theme-btn:hover {
+.theme-toggle:hover {
     transform: rotate(20deg) scale(1.08);
 }
 
 /* =========================
-   GENERAL
+   General
 ========================= */
 
 section {
@@ -182,10 +182,10 @@ section {
 }
 
 .section-label {
-    color: var(--pink-dark);
-    font-size: 12px;
+    color: var(--pink);
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 12px;
 }
@@ -193,22 +193,11 @@ section {
 .section-title {
     font-family: "Playfair Display", serif;
     font-size: clamp(36px, 5vw, 55px);
-    margin-bottom: 25px;
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+    margin-bottom: 35px;
 }
 
 /* =========================
-   HERO
+   Hero
 ========================= */
 
 .hero {
@@ -221,140 +210,129 @@ section {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 850px;
 }
 
-.hero-bow {
+.bow {
     display: inline-block;
     font-size: 45px;
-    margin-bottom: 20px;
-    animation: bowBounce 2.5s ease-in-out infinite;
+    margin-bottom: 15px;
+    animation: bowFloat 3s ease-in-out infinite;
 }
 
-@keyframes bowBounce {
-    0%,100% {
-        transform: rotate(-5deg) scale(1);
-    }
-    50% {
-        transform: rotate(5deg) scale(1.08);
-    }
+@keyframes bowFloat {
+    0%,100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg) scale(1.05); }
 }
 
 .hero h1 {
     font-family: "Playfair Display", serif;
-    font-size: clamp(60px, 11vw, 115px);
+    font-size: clamp(65px, 11vw, 130px);
     line-height: 0.95;
-    color: var(--text);
+    color: #2d252b;
+    letter-spacing: -4px;
 }
 
 .hero h1 span {
-    color: var(--pink-dark);
+    color: var(--hot-pink);
 }
 
 .tagline {
-    margin: 30px auto;
-    max-width: 620px;
-    font-size: 17px;
-    line-height: 1.8;
-    color: var(--text-light);
+    margin-top: 28px;
+    font-size: clamp(17px, 2vw, 21px);
+    color: #71656e;
+    line-height: 1.7;
 }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 13px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 14px 25px;
-    border-radius: 30px;
-    text-decoration: none;
+.hero-note {
+    margin-top: 20px;
+    color: var(--pink);
+    font-family: "Quicksand", sans-serif;
     font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
 }
 
-.btn-primary {
-    background: var(--pink);
-    color: white;
-    box-shadow: 0 10px 25px rgba(216, 104, 146, 0.25);
+.scroll {
+    margin-top: 55px;
+    color: #a17c8e;
+    font-size: 13px;
+    animation: bounce 2s infinite;
 }
 
-.btn-primary:hover {
-    background: var(--pink-dark);
-    transform: translateY(-4px);
-}
-
-.btn-secondary {
-    border: 1px solid var(--border);
-    color: var(--text);
-    background: var(--white);
-}
-
-.btn-secondary:hover {
-    transform: translateY(-4px);
-    border-color: var(--pink);
+@keyframes bounce {
+    50% { transform: translateY(8px); }
 }
 
 /* =========================
-   ABOUT
+   About
 ========================= */
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.about-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    padding: 45px;
+.about-box {
+    background: var(--card);
+    backdrop-filter: blur(15px);
+    border: 1px solid white;
+    border-radius: 35px;
+    padding: 50px;
     box-shadow: var(--shadow);
 }
 
-.about-card p {
-    font-size: 18px;
+.about-box p {
+    font-size: 20px;
     line-height: 1.9;
-    color: var(--text-light);
+    color: #625761;
+    max-width: 850px;
 }
 
-.about-card .music {
-    margin-top: 22px;
-    color: var(--pink-dark);
+.music {
+    margin-top: 25px;
+    display: inline-block;
+    background: #ffe3ed;
+    color: #c74f83;
+    padding: 12px 20px;
+    border-radius: 30px;
     font-weight: 600;
 }
 
 /* =========================
-   SKILLS
+   Skills
 ========================= */
 
 .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 13px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.skill {
-    background: var(--white);
-    border: 1px solid var(--border);
-    padding: 14px 22px;
-    border-radius: 30px;
-    color: var(--pink-dark);
-    font-weight: 600;
-    box-shadow: 0 8px 25px rgba(200,100,140,0.06);
-    transition: transform 0.3s;
+.skill-card {
+    background: var(--card);
+    padding: 35px 28px;
+    border-radius: 28px;
+    border: 1px solid white;
+    box-shadow: var(--shadow);
+    transition: 0.4s;
 }
 
-.skill:hover {
-    transform: translateY(-5px) rotate(-2deg);
+.skill-card:hover {
+    transform: translateY(-10px) rotate(-1deg);
+}
+
+.skill-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.skill-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    line-height: 1.6;
 }
 
 /* =========================
-   PROJECTS
+   Projects
 ========================= */
 
 .projects-grid {
@@ -364,99 +342,172 @@ section {
 }
 
 .project-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    padding: 32px;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: var(--card);
+    border: 1px solid white;
+    border-radius: 32px;
+    padding: 35px;
     box-shadow: var(--shadow);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-card:hover {
-    transform: translateY(-9px);
-    box-shadow: 0 30px 70px rgba(200, 90, 135, 0.16);
+    transform: translateY(-10px);
 }
 
 .project-number {
-    color: var(--pink-dark);
-    font-size: 13px;
+    color: var(--pink);
     font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.project-icon {
-    font-size: 40px;
-    margin: 15px 0;
+    font-size: 14px;
 }
 
 .project-card h3 {
     font-family: "Playfair Display", serif;
     font-size: 28px;
-    margin-bottom: 12px;
+    margin: 18px 0 12px;
 }
 
 .project-card p {
-    color: var(--text-light);
+    color: var(--muted);
     line-height: 1.7;
+    margin-bottom: 25px;
 }
 
-.project-open {
-    margin-top: 25px;
+.project-btn {
     border: none;
-    background: var(--pink);
+    background: #e879a9;
     color: white;
-    padding: 13px 20px;
-    border-radius: 25px;
+    padding: 13px 22px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    width: fit-content;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
     transition: 0.3s;
 }
 
-.project-open:hover {
-    background: var(--pink-dark);
-    transform: translateX(5px);
+.project-btn:hover {
+    background: #d95791;
+    transform: scale(1.04);
+}
+
+.coming-soon {
+    opacity: 0.75;
 }
 
 /* =========================
-   SELF STUDY PROJECT
+   Contact
 ========================= */
 
-.study-project {
+.contact-box {
+    text-align: center;
+    background: linear-gradient(135deg, #ffe1ed, #fff7fa);
+    border-radius: 40px;
+    padding: 70px 30px;
+    box-shadow: var(--shadow);
+}
+
+.contact-box h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(40px, 6vw, 65px);
+}
+
+.contact-box p {
+    color: #766b72;
+    margin: 20px 0 30px;
+}
+
+.email {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--hot-pink);
+    padding: 15px 25px;
+    border-radius: 35px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.email:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(217,87,145,0.25);
+}
+
+/* =========================
+   Footer
+========================= */
+
+footer {
+    text-align: center;
+    padding: 40px 20px 55px;
+    color: #a08e98;
+    font-size: 13px;
+}
+
+/* =========================
+   Modal — Study List
+========================= */
+
+.modal {
     display: none;
-    margin-top: 35px;
-    background: var(--pink-light);
-    border: 1px solid var(--border);
+    position: fixed;
+    inset: 0;
+    background: rgba(70,35,52,0.45);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-window {
+    width: min(850px, 100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #fff0f6;
     border-radius: 30px;
     padding: 35px;
-    animation: projectOpen 0.5s ease;
+    box-shadow: 0 30px 90px rgba(70,30,50,0.25);
+    position: relative;
+    animation: modalIn 0.35s ease;
 }
 
-.study-project.active {
-    display: block;
-}
-
-@keyframes projectOpen {
+@keyframes modalIn {
     from {
         opacity: 0;
-        transform: translateY(-15px);
+        transform: translateY(30px) scale(0.96);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
+}
+
+.close-modal {
+    position: absolute;
+    right: 22px;
+    top: 18px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #c85a84;
+    font-size: 20px;
 }
 
 .study-title {
     text-align: center;
     color: #c85a84;
-    margin-bottom: 25px;
-    font-size: 25px;
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-family: "Quicksand", sans-serif;
 }
 
 .study-title::before {
@@ -467,11 +518,11 @@ section {
     content: " ♡";
 }
 
-.study-input-area {
-    background: var(--white);
+.input-area {
+    background: #ffffff;
     padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px #e8b8cc;
     margin-bottom: 20px;
     display: flex;
     gap: 10px;
@@ -480,32 +531,32 @@ section {
 }
 
 .study-input {
-    padding: 11px;
+    padding: 12px;
     border: 1px solid #f2c6d8;
     border-radius: 10px;
     font-size: 15px;
     outline-color: #e889b0;
-    background: var(--white);
-    color: var(--text);
+    font-family: "Quicksand", sans-serif;
 }
 
 #taskName {
     flex: 1;
-    min-width: 190px;
+    min-width: 200px;
 }
 
 #taskMin {
-    width: 120px;
+    width: 130px;
 }
 
 #addBtn {
-    padding: 11px 18px;
+    padding: 12px 18px;
     background-color: #e878a2;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+    font-weight: 700;
     transition: 0.2s;
 }
 
@@ -514,24 +565,20 @@ section {
     transform: translateY(-2px);
 }
 
-.study-stat {
-    background: var(--white);
+.stat {
+    background: #fff;
     padding: 16px 20px;
     border-radius: 16px;
     margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
-    font-size: 16px;
+    box-shadow: 0 2px 10px #e8b8cc;
+    font-size: 17px;
     color: #b04b75;
 }
 
-.study-stat::before {
-    content: "♡ Remaining study time: ";
-}
-
 .task-list {
-    background: var(--white);
+    background: #fff;
     border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
+    box-shadow: 0 2px 10px #e8b8cc;
     overflow: hidden;
 }
 
@@ -549,8 +596,8 @@ section {
 
 .task-name {
     flex: 1;
-    font-size: 15px;
-    color: var(--text);
+    font-size: 16px;
+    color: #55283c;
 }
 
 .task-min {
@@ -562,76 +609,79 @@ section {
     color: #d8a1b6;
 }
 
-.task-checkbox {
+.task-check {
     width: 18px;
     height: 18px;
     accent-color: #e878a2;
 }
 
-.close-project {
-    display: block;
-    margin: 22px auto 0;
-    border: none;
-    background: transparent;
-    color: var(--pink-dark);
-    cursor: pointer;
-    font-weight: 600;
-}
-
 /* =========================
-   CONTACT
+   Dark mode
 ========================= */
 
-.contact {
-    text-align: center;
-    padding-bottom: 130px;
+body.dark {
+    --text: #f9edf3;
+    --muted: #c6b4bd;
+    --card: rgba(50,35,43,0.82);
+
+    background:
+        radial-gradient(circle at 10% 10%, #492d3b 0, transparent 25%),
+        radial-gradient(circle at 90% 20%, #422633 0, transparent 25%),
+        #21191e;
 }
 
-.contact-box {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 35px;
-    padding: 65px 30px;
-    box-shadow: var(--shadow);
+body.dark nav {
+    background: rgba(40,28,34,0.82);
 }
 
-.contact-box p {
-    color: var(--text-light);
-    margin-bottom: 25px;
+body.dark .nav-links a {
+    color: #dfcbd3;
 }
 
-.email {
-    display: inline-block;
-    color: var(--pink-dark);
-    font-size: clamp(17px, 3vw, 23px);
-    font-weight: 700;
-    text-decoration: none;
-    margin-bottom: 20px;
+body.dark .hero h1 {
+    color: #fff1f7;
 }
 
-.email:hover {
-    text-decoration: underline;
+body.dark .tagline,
+body.dark .about-box p,
+body.dark .project-card p,
+body.dark .contact-box p {
+    color: #cbbbc2;
 }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    color: var(--text-light);
-    font-size: 12px;
+body.dark .about-box,
+body.dark .skill-card,
+body.dark .project-card {
+    border-color: rgba(255,255,255,0.08);
 }
 
-footer span {
-    color: var(--pink-dark);
+body.dark .contact-box {
+    background: linear-gradient(135deg, #402633, #2b2025);
 }
 
 /* =========================
-   RESPONSIVE
+   Scroll animation
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   Mobile
 ========================= */
 
 @media (max-width: 750px) {
 
     nav {
-        top: 12px;
+        padding: 12px 16px;
     }
 
     .nav-links {
@@ -639,45 +689,32 @@ footer span {
     }
 
     section {
-        padding: 85px 0;
+        padding: 80px 0;
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    .hero h1 {
+        font-size: 65px;
+        letter-spacing: -2px;
     }
 
-    .about-card {
+    .about-box {
         padding: 30px;
     }
 
+    .about-box p {
+        font-size: 17px;
+    }
+
+    .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    .study-project {
-        padding: 20px;
-    }
-
-    .study-input-area {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    #taskName,
-    #taskMin,
-    #addBtn {
-        width: 100%;
-    }
-
-    .task-item {
-        padding: 13px;
-    }
-
-    .task-min {
-        font-size: 13px;
+    .modal-window {
+        padding: 25px 18px;
     }
 }
+
 </style>
 </head>
 
@@ -689,9 +726,13 @@ footer span {
 <div class="decor bow1">🎀</div>
 <div class="decor bow2">♡</div>
 
-<!-- NAV -->
+
+<!-- =========================
+     Navigation
+========================= -->
+
 <nav>
-    <a href="#home" class="logo">Nancy ♡</a>
+    <div class="logo">Nancy <span>♡</span></div>
 
     <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -700,349 +741,386 @@ footer span {
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <button class="theme-btn" id="themeBtn">☾</button>
+    <button class="theme-toggle" id="themeToggle">☾</button>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="hero-content reveal">
 
-        <div class="hero-bow">🎀</div>
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="bow">🎀</div>
+
+        <div class="section-label">
+            Hello, lovely ♡
+        </div>
 
         <h1>
-            Hi, I'm <span>Nancy</span> ♡
+            Nancy <span>Cong</span>
         </h1>
 
         <p class="tagline">
-            A student, a learner, and someone who is always curious
-            about people, ideas, and the world around me.
+            A curious student exploring people, ideas,<br>
+            and the world around me. ♡
         </p>
 
-        <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">
-                Explore My Projects ♡
-            </a>
+        <p class="hero-note">
+            ✦ Social Science · Psychology · Music ✦
+        </p>
 
-            <a href="#contact" class="btn btn-secondary">
-                Say Hello
-            </a>
+        <div class="scroll">
+            ↓ scroll to explore ♡
         </div>
 
     </div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about">
 
-    <div class="section-label reveal">01 — About Me</div>
+<!-- =========================
+     ABOUT ME
+========================= -->
 
-    <div class="about-grid">
+<section id="about" class="reveal">
 
-        <div class="reveal">
-            <h2 class="section-title">
-                A little<br>
-                about me.
-            </h2>
+    <div class="section-label">01 · About Me</div>
+
+    <h2 class="section-title">
+        A little about me ♡
+    </h2>
+
+    <div class="about-box">
+
+        <p>
+            I am a senior high school student at BJEA and will pursue my undergraduate studies abroad, majoring in Social Science or Psychology.
+        </p>
+
+        <div class="music">
+            🎧 I love listening to music & singing 🎤 ♡
         </div>
 
-        <div class="about-card reveal">
+    </div>
 
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills" class="reveal">
+
+    <div class="section-label">02 · Skills</div>
+
+    <h2 class="section-title">
+        Things I enjoy ♡
+    </h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <div class="skill-icon">🧠</div>
+            <h3>Psychology</h3>
             <p>
-                I am a senior high school student at BJEA and will pursue
-                my undergraduate studies abroad, majoring in Social Science
-                or Psychology.
+                Exploring human behavior, thoughts, and the way people interact with the world.
             </p>
+        </div>
 
-            <p class="music">
-                ♡ I also love listening to music and singing.
+        <div class="skill-card">
+            <div class="skill-icon">🌷</div>
+            <h3>Social Science</h3>
+            <p>
+                Curious about people, society, relationships, and different perspectives.
             </p>
+        </div>
 
+        <div class="skill-card">
+            <div class="skill-icon">🎧</div>
+            <h3>Music</h3>
+            <p>
+                Listening to music and singing are some of my favorite ways to relax and enjoy my time.
+            </p>
         </div>
 
     </div>
 
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
 
-    <div class="section-label reveal">02 — Skills</div>
+<!-- =========================
+     PROJECTS
+========================= -->
 
-    <h2 class="section-title reveal">
-        Things I enjoy
-        <span style="color:#d45f8d;">♡</span>
+<section id="projects" class="reveal">
+
+    <div class="section-label">03 · Projects</div>
+
+    <h2 class="section-title">
+        Little things I've made 🎀
     </h2>
 
-    <div class="skills-grid reveal">
-
-        <div class="skill">Social Science</div>
-        <div class="skill">Psychology</div>
-        <div class="skill">Research</div>
-        <div class="skill">Writing</div>
-        <div class="skill">Communication</div>
-        <div class="skill">Creative Thinking</div>
-        <div class="skill">Learning</div>
-        <div class="skill">Music ♡</div>
-
-    </div>
-
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-
-    <div class="section-label reveal">03 — Projects</div>
-
-    <h2 class="section-title reveal">
-        Things I've made 🎀
-    </h2>
-
-    <!-- PROJECT BRANCHES -->
     <div class="projects-grid">
 
         <!-- PROJECT 01 -->
-        <div class="project-card reveal">
+        <div class="project-card">
 
-            <div>
-
-                <div class="project-number">01</div>
-
-                <div class="project-icon">♡</div>
-
-                <h3>Self-study List</h3>
-
-                <p>
-                    A simple tool that helps me plan and organize
-                    my evening self-study sessions.
-                </p>
-
+            <div class="project-number">
+                01 · STUDY TOOL
             </div>
 
-            <button class="project-open" id="openStudy">
-                Open Project →
+            <h3>
+                High School Evening Study Checklist 💗
+            </h3>
+
+            <p>
+                A simple interactive study-planning tool designed to help organize evening self-study tasks and keep track of remaining study time.
+            </p>
+
+            <button class="project-btn" id="openStudy">
+                Click to open ♡ →
             </button>
 
         </div>
+
 
         <!-- PROJECT 02 -->
-        <div class="project-card reveal">
+        <div class="project-card coming-soon">
 
-            <div>
-
-                <div class="project-number">02</div>
-
-                <div class="project-icon">✦</div>
-
-                <h3>Coming Soon</h3>
-
-                <p>
-                    More projects and ideas will be added here.
-                </p>
-
+            <div class="project-number">
+                02 · COMING SOON
             </div>
 
-        </div>
+            <h3>
+                ✨ More to come
+            </h3>
 
-        <!-- PROJECT 03 -->
-        <div class="project-card reveal">
+            <p>
+                More little projects and ideas will be added here soon. 🎀
+            </p>
 
-            <div>
-
-                <div class="project-number">03</div>
-
-                <div class="project-icon">☾</div>
-
-                <h3>In Progress</h3>
-
-                <p>
-                    Something new is currently taking shape.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- =========================
-         SELF STUDY LIST BRANCH
-    ========================== -->
-
-    <div class="study-project" id="studyProject">
-
-        <h2 class="study-title">
-            High School Evening Self-study List
-        </h2>
-
-        <div class="study-input-area">
-
-            <input
-                class="study-input"
-                id="taskName"
-                placeholder="Enter a study task, e.g. Math review"
-            >
-
-            <input
-                class="study-input"
-                id="taskMin"
-                placeholder="Minutes (1–180)"
-                type="number"
-            >
-
-            <button id="addBtn">
-                Add Task 💗
+            <button class="project-btn" disabled>
+                Coming soon ♡
             </button>
 
         </div>
-
-        <div class="study-stat">
-            <span id="totalMin">0</span> minutes
-        </div>
-
-        <div class="task-list" id="taskListWrap"></div>
-
-        <button class="close-project" id="closeStudy">
-            Close Project ↑
-        </button>
 
     </div>
 
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
 
-    <div class="section-label reveal">
-        04 — Contact
-    </div>
+<!-- =========================
+     CONTACT
+========================= -->
 
-    <div class="contact-box reveal">
+<section id="contact" class="reveal">
 
-        <div style="font-size:45px;margin-bottom:15px;">
-            💌
+    <div class="contact-box">
+
+        <div class="section-label">
+            04 · Contact
         </div>
 
-        <h2 class="section-title">
-            Let's connect ♡
+        <h2>
+            Let's stay in touch 💌
         </h2>
 
         <p>
-            Feel free to reach out.
+            Have something to say? I'd love to hear from you. ♡
         </p>
 
         <a
             class="email"
             href="mailto:nancycong081031@gmail.com"
         >
-            nancycong081031@gmail.com
+            💌 nancycong081031@gmail.com
         </a>
 
     </div>
 
 </section>
 
+
 <footer>
-    Made with <span>♡</span> by Nancy 🎀
+    Made with ♡, a little pink, and lots of 🎀
 </footer>
+
+
+<!-- =========================================================
+     EVENING STUDY CHECKLIST MODAL
+========================================================= -->
+
+<div class="modal" id="studyModal">
+
+    <div class="modal-window">
+
+        <button class="close-modal" id="closeStudy">
+            ×
+        </button>
+
+        <h1 class="study-title">
+            高三晚自习复习清单
+        </h1>
+
+        <div class="input-area">
+
+            <input
+                class="study-input"
+                id="taskName"
+                placeholder="输入复习任务，例：数学错题整理"
+            >
+
+            <input
+                class="study-input"
+                id="taskMin"
+                placeholder="时长(1~180整数)"
+                type="number"
+            >
+
+            <button id="addBtn">
+                添加任务 💗
+            </button>
+
+        </div>
+
+
+        <div class="stat">
+            ♡ 剩余复习总时长：
+            <span id="totalMin">0</span>
+            分钟
+        </div>
+
+
+        <div
+            class="task-list"
+            id="taskListWrap"
+        ></div>
+
+    </div>
+
+</div>
 
 
 <script>
 
-/* =========================
+/* =========================================================
    DARK / LIGHT MODE
-========================= */
+========================================================= */
 
-const themeBtn = document.getElementById("themeBtn");
+const themeToggle = document.getElementById("themeToggle");
 
-themeBtn.addEventListener("click", () => {
+themeToggle.addEventListener("click", function() {
 
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
-        themeBtn.textContent = "☀";
+        themeToggle.textContent = "☀️";
     } else {
-        themeBtn.textContent = "☾";
+        themeToggle.textContent = "☾";
     }
 
 });
 
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-const reveals = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-    (entries) => {
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-        entries.forEach(entry => {
+            entries.forEach(entry => {
 
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
 
-        });
+            });
 
-    },
-    {
-        threshold: 0.12
-    }
-);
+        },
+        {
+            threshold: 0.15
+        }
+    );
 
-reveals.forEach(element => {
+revealElements.forEach(element => {
     observer.observe(element);
 });
 
 
-/* =========================
-   OPEN / CLOSE PROJECT
-========================= */
+/* =========================================================
+   STUDY LIST MODAL
+========================================================= */
 
-const openStudy = document.getElementById("openStudy");
-const closeStudy = document.getElementById("closeStudy");
-const studyProject = document.getElementById("studyProject");
+const modal =
+    document.getElementById("studyModal");
 
-openStudy.addEventListener("click", () => {
+const openStudy =
+    document.getElementById("openStudy");
 
-    studyProject.classList.add("active");
+const closeStudy =
+    document.getElementById("closeStudy");
 
-    setTimeout(() => {
 
-        studyProject.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+openStudy.addEventListener("click", function() {
 
-    }, 100);
-
-});
-
-closeStudy.addEventListener("click", () => {
-
-    studyProject.classList.remove("active");
+    modal.classList.add("active");
 
 });
 
 
-/* =========================
-   SELF-STUDY LIST
-   Based on your original code
-========================= */
+closeStudy.addEventListener("click", function() {
+
+    modal.classList.remove("active");
+
+});
+
+
+modal.addEventListener("click", function(event) {
+
+    if (event.target === modal) {
+        modal.classList.remove("active");
+    }
+
+});
+
+
+/* =========================================================
+   ORIGINAL EVENING STUDY CHECKLIST
+========================================================= */
 
 let tasks = [];
 
-const nameInput = document.getElementById("taskName");
-const minInput = document.getElementById("taskMin");
-const addBtn = document.getElementById("addBtn");
-const listWrap = document.getElementById("taskListWrap");
-const totalDom = document.getElementById("totalMin");
+const nameInput =
+    document.getElementById("taskName");
+
+const minInput =
+    document.getElementById("taskMin");
+
+const addBtn =
+    document.getElementById("addBtn");
+
+const listWrap =
+    document.getElementById("taskListWrap");
+
+const totalDom =
+    document.getElementById("totalMin");
 
 
 function renderList() {
 
     let unFinishTotal = 0;
+
     let html = "";
+
 
     tasks.forEach((item, index) => {
 
@@ -1050,11 +1128,13 @@ function renderList() {
             unFinishTotal += item.minutes;
         }
 
+
         html += `
+
             <div class="task-item ${item.completed ? "completed" : ""}">
 
                 <input
-                    class="task-checkbox"
+                    class="task-check"
                     type="checkbox"
                     data-index="${index}"
                     ${item.completed ? "checked" : ""}
@@ -1065,13 +1145,15 @@ function renderList() {
                 </div>
 
                 <div class="task-min">
-                    ${item.minutes} min ♡
+                    ${item.minutes}分钟 ♡
                 </div>
 
             </div>
+
         `;
 
     });
+
 
     listWrap.innerHTML = html;
 
@@ -1079,16 +1161,20 @@ function renderList() {
 
 
     const checkboxes =
-        listWrap.querySelectorAll(".task-checkbox");
+        listWrap.querySelectorAll(
+            ".task-check"
+        );
 
 
     checkboxes.forEach(cb => {
 
         cb.onclick = function() {
 
-            const idx = Number(this.dataset.index);
+            const idx =
+                Number(this.dataset.index);
 
-            tasks[idx].completed = this.checked;
+            tasks[idx].completed =
+                this.checked;
 
             renderList();
 
@@ -1099,11 +1185,12 @@ function renderList() {
 }
 
 
-/* Prevent HTML from being inserted as task text */
+/* Prevent HTML from being inserted into task names */
 
 function escapeHTML(text) {
 
-    const div = document.createElement("div");
+    const div =
+        document.createElement("div");
 
     div.textContent = text;
 
@@ -1112,31 +1199,35 @@ function escapeHTML(text) {
 }
 
 
-/* =========================
-   ADD TASK
-========================= */
+/* ADD TASK */
 
 addBtn.onclick = function() {
 
-    const name = nameInput.value.trim();
+    const name =
+        nameInput.value.trim();
 
-    const minStr = minInput.value.trim();
+    const minStr =
+        minInput.value.trim();
 
-    const minNum = Number(minStr);
+    const minNum =
+        Number(minStr);
 
 
     if (!name) {
 
-        alert("Please enter a study task.");
+        alert("任务名称不能为空！");
 
         return;
 
     }
 
 
-    if (minStr === "" || isNaN(minNum)) {
+    if (
+        minStr === "" ||
+        isNaN(minNum)
+    ) {
 
-        alert("Please enter a valid study time.");
+        alert("请填写有效的时长！");
 
         return;
 
@@ -1150,7 +1241,7 @@ addBtn.onclick = function() {
     ) {
 
         alert(
-            "Study time must be an integer between 1 and 180."
+            "时长必须是1~180之间的整数！"
         );
 
         return;
@@ -1178,9 +1269,7 @@ addBtn.onclick = function() {
 };
 
 
-/* =========================
-   ENTER KEY SUPPORT
-========================= */
+/* ENTER KEY SUPPORT */
 
 nameInput.addEventListener("keydown", function(e) {
 
@@ -1197,6 +1286,11 @@ minInput.addEventListener("keydown", function(e) {
     }
 
 });
+
+
+/* Initial render */
+
+renderList();
 
 </script>
 
