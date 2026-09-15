@@ -1,143 +1,1796 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Nancy 💗</title>
+  <title>Nancy Cong ♡</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Poppins", "Arial", sans-serif;
-}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@500;600;700&family=Pacifico&display=swap');
 
-body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#fff0f6,#ffd6e7,#ffeaf3);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#5a3550;
-}
-
-.card{
-    width:90%;
-    max-width:700px;
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(15px);
-    border-radius:35px;
-    padding:60px 45px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(255,120,170,0.25);
-    animation:fade 1.2s ease;
-}
-
-h1{
-    font-size:55px;
-    color:#ff6fa8;
-    margin-bottom:25px;
-}
-
-p{
-    font-size:20px;
-    line-height:1.8;
-    color:#6b4660;
-}
-
-.email{
-    margin-top:35px;
-    font-size:18px;
-    color:#ff5c9a;
-}
-
-.decor{
-    font-size:35px;
-    margin-bottom:20px;
-}
-
-button{
-    margin-top:35px;
-    padding:12px 30px;
-    border:none;
-    border-radius:30px;
-    background:#ff8fbd;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-button:hover{
-    transform:scale(1.08);
-    background:#ff6fa8;
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(30px);
+    :root {
+      --bg: #fff8fb;
+      --soft-pink: #fff0f6;
+      --pink: #e85b91;
+      --dark-pink: #c93e73;
+      --light-pink: #ffd8e8;
+      --text: #351c2a;
+      --muted: #80566a;
+      --white: #ffffff;
+      --border: #f5c7d9;
+      --shadow: 0 18px 50px rgba(210, 72, 125, 0.13);
+      --nav: rgba(255, 248, 251, 0.82);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    body.dark {
+      --bg: #251720;
+      --soft-pink: #351d29;
+      --pink: #ff78ab;
+      --dark-pink: #ff9fc4;
+      --light-pink: #633449;
+      --text: #fff1f7;
+      --muted: #d6aabd;
+      --white: #38232d;
+      --border: #6d4055;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+      --nav: rgba(37, 23, 32, 0.85);
     }
-}
 
-body.dark{
-    background:#3b2635;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body.dark .card{
-    background:#4b3042;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body.dark p{
-    color:#ffe1ef;
-}
+    body {
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(255, 190, 216, 0.35),
+          transparent 22%
+        ),
+        radial-gradient(
+          circle at 90% 30%,
+          rgba(255, 210, 230, 0.35),
+          transparent 25%
+        ),
+        var(--bg);
 
-body.dark h1{
-    color:#ff9fc8;
-}
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      transition: 0.35s;
+    }
 
-</style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1080px, 90%);
+      margin: auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1050px, 92%);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 11px 16px 11px 23px;
+
+      background: var(--nav);
+      backdrop-filter: blur(18px);
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      box-shadow: var(--shadow);
+
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: "Pacifico", cursive;
+      color: var(--dark-pink);
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    /* Theme toggle */
+
+    .theme-btn {
+      width: 49px;
+      height: 28px;
+
+      border: none;
+      border-radius: 999px;
+
+      background: var(--light-pink);
+
+      cursor: pointer;
+
+      position: relative;
+    }
+
+    .theme-btn::after {
+      content: "☀";
+
+      position: absolute;
+
+      width: 22px;
+      height: 22px;
+
+      top: 3px;
+      left: 4px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: white;
+
+      font-size: 13px;
+
+      transition: 0.3s;
+    }
+
+    body.dark .theme-btn::after {
+      content: "☾";
+      transform: translateX(18px);
+    }
+
+    /* =========================
+       FLOATING DECORATIONS
+    ========================= */
+
+    .decor {
+      position: fixed;
+      pointer-events: none;
+
+      color: var(--pink);
+
+      opacity: 0.5;
+
+      z-index: 0;
+
+      animation: floating 6s ease-in-out infinite;
+    }
+
+    .heart-1 {
+      left: 3%;
+      top: 20%;
+      font-size: 32px;
+    }
+
+    .heart-2 {
+      right: 4%;
+      top: 62%;
+      font-size: 27px;
+      animation-delay: -2s;
+    }
+
+    .bow-1 {
+      right: 2%;
+      top: 38%;
+      font-size: 40px;
+      animation-delay: -4s;
+    }
+
+    .butterfly-1 {
+      left: 3%;
+      top: 78%;
+      font-size: 30px;
+      animation-delay: -1s;
+    }
+
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0) rotate(-4deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(5deg);
+      }
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 105px 0;
+    }
+
+    .section-kicker {
+      color: var(--pink);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-top: 5px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(40px, 5vw, 58px);
+
+      line-height: 1.1;
+
+      letter-spacing: -0.035em;
+    }
+
+    h2 em {
+      color: var(--pink);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: grid;
+      place-items: center;
+
+      padding-top: 130px;
+    }
+
+    .hero-inner {
+      display: grid;
+
+      grid-template-columns: 1.1fr 0.9fr;
+
+      gap: 55px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--dark-pink);
+
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+
+      text-transform: uppercase;
+
+      font-size: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(60px, 9vw, 105px);
+
+      line-height: 0.95;
+
+      letter-spacing: -0.055em;
+
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: var(--pink);
+      font-style: italic;
+    }
+
+    .tagline {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(20px, 3vw, 29px);
+
+      color: var(--muted);
+
+      max-width: 650px;
+
+      margin-bottom: 15px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+
+      max-width: 610px;
+
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: flex;
+
+      gap: 12px;
+
+      margin-top: 28px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 12px 20px;
+
+      border-radius: 999px;
+
+      border: 1px solid var(--pink);
+
+      cursor: pointer;
+
+      font-weight: 700;
+
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+
+      color: white;
+    }
+
+    .btn-secondary {
+      background: var(--white);
+
+      color: var(--dark-pink);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 12px 25px rgba(232, 91, 145, 0.2);
+    }
+
+    /* Hero decoration */
+
+    .hero-art {
+      min-height: 430px;
+
+      position: relative;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+    .blob {
+      width: 340px;
+      height: 390px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffd9e8,
+          #f49abd
+        );
+
+      border-radius:
+        52% 48% 60% 40%
+        /
+        43% 45% 55% 57%;
+
+      transform: rotate(-7deg);
+
+      box-shadow:
+        20px 25px 0 rgba(232, 91, 145, 0.13);
+
+      animation: morph 7s ease-in-out infinite;
+    }
+
+    @keyframes morph {
+      0%,
+      100% {
+        border-radius:
+          52% 48% 60% 40%
+          /
+          43% 45% 55% 57%;
+      }
+
+      50% {
+        border-radius:
+          43% 57% 45% 55%
+          /
+          56% 42% 58% 44%;
+      }
+    }
+
+    .big-bow {
+      position: absolute;
+
+      right: 3%;
+      top: 5%;
+
+      font-size: 100px;
+
+      transform: rotate(10deg);
+
+      animation: bowFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes bowFloat {
+      50% {
+        transform:
+          rotate(5deg)
+          translateY(-12px);
+      }
+    }
+
+    .floating-card {
+      position: absolute;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 22px;
+
+      padding: 17px 22px;
+
+      box-shadow: var(--shadow);
+
+      color: var(--muted);
+    }
+
+    .floating-card strong {
+      color: var(--dark-pink);
+
+      display: block;
+
+      font-family: "Pacifico", cursive;
+
+      font-weight: 400;
+    }
+
+    .card-one {
+      left: 0;
+      bottom: 35px;
+
+      transform: rotate(-5deg);
+    }
+
+    .card-two {
+      right: 0;
+      bottom: 85px;
+
+      transform: rotate(5deg);
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns: 0.75fr 1.25fr;
+
+      gap: 60px;
+
+      align-items: center;
+    }
+
+    .photo-card {
+      background: var(--light-pink);
+
+      border: 1px solid var(--border);
+
+      border-radius: 30px;
+
+      padding: 25px;
+
+      transform: rotate(-3deg);
+
+      box-shadow: var(--shadow);
+    }
+
+    .photo-placeholder {
+      min-height: 330px;
+
+      border-radius: 22px;
+
+      display: grid;
+
+      place-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffe3ee,
+          #f5a5c4
+        );
+
+      font-size: 80px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+
+      margin-top: 22px;
+
+      font-size: 18px;
+    }
+
+    .music-note {
+      margin-top: 22px;
+
+      color: var(--dark-pink);
+
+      font-weight: 700;
+
+      font-size: 18px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .section-head {
+      margin-bottom: 40px;
+    }
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 17px;
+    }
+
+    .skill {
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 23px;
+
+      padding: 25px;
+
+      box-shadow: var(--shadow);
+
+      transition: 0.25s;
+    }
+
+    .skill:hover {
+      transform:
+        translateY(-8px)
+        rotate(-1deg);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+
+      margin-bottom: 12px;
+    }
+
+    .skill h3 {
+      margin-bottom: 7px;
+    }
+
+    .skill p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       PROJECT
+    ========================= */
+
+    .project-card {
+      display: grid;
+
+      grid-template-columns:
+        0.8fr 1.2fr;
+
+      gap: 30px;
+
+      align-items: stretch;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 30px;
+
+      padding: 25px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .project-preview {
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff0f6,
+          #ffd0e3
+        );
+
+      padding: 25px;
+
+      min-height: 300px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    .mini-check {
+      width: 100%;
+
+      background: white;
+
+      border-radius: 18px;
+
+      padding: 20px;
+
+      box-shadow:
+        0 10px 25px
+        rgba(180, 65, 110, 0.12);
+    }
+
+    .mini-check h4 {
+      color: #b13e6b;
+
+      margin-bottom: 12px;
+    }
+
+    .mini-row {
+      display: flex;
+
+      gap: 9px;
+
+      padding: 9px 0;
+
+      border-bottom:
+        1px solid #ffe1ec;
+
+      font-size: 13px;
+    }
+
+    .mini-row:last-child {
+      border-bottom: none;
+    }
+
+    .project-copy {
+      padding: 15px 10px;
+    }
+
+    .project-copy h3 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 32px;
+
+      margin: 8px 0 12px;
+    }
+
+    .project-copy p {
+      color: var(--muted);
+
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 23px;
+    }
+
+    .tag {
+      padding: 6px 11px;
+
+      background: var(--light-pink);
+
+      color: var(--dark-pink);
+
+      border-radius: 999px;
+
+      font-size: 12px;
+
+      font-weight: 700;
+    }
+
+    /* =========================
+       INTERACTIVE CHECKLIST
+    ========================= */
+
+    .checklist {
+      display: none;
+
+      margin-top: 25px;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: 25px;
+
+      padding: 24px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .checklist.show {
+      display: block;
+
+      animation: fadeUp 0.5s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .checklist-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 15px;
+    }
+
+    .progress {
+      color: var(--dark-pink);
+
+      font-weight: 700;
+    }
+
+    .task {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 13px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .task:last-child {
+      border-bottom: none;
+    }
+
+    .task input {
+      width: 18px;
+      height: 18px;
+
+      accent-color: var(--pink);
+    }
+
+    .task.done span {
+      text-decoration: line-through;
+
+      opacity: 0.5;
+    }
+
+    .task-min {
+      margin-left: auto;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+
+      padding-bottom: 80px;
+    }
+
+    .contact-box {
+      background: var(--light-pink);
+
+      border: 1px solid var(--border);
+
+      border-radius: 32px;
+
+      padding: 60px 25px;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+
+      margin: 15px auto 25px;
+
+      max-width: 600px;
+    }
+
+    .email {
+      display: inline-block;
+
+      color: var(--dark-pink);
+
+      font-weight: 700;
+
+      font-size: clamp(17px, 3vw, 24px);
+
+      border-bottom:
+        2px solid var(--pink);
+
+      padding-bottom: 4px;
+    }
+
+    .contact-decoration {
+      font-size: 32px;
+
+      margin-top: 22px;
+    }
+
+    footer {
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      padding-bottom: 30px;
+    }
+
+    /* =========================
+       SCROLL ANIMATION
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(35px);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: none;
+    }
+
+    /* =========================
+       FLOATING CLICK HEARTS
+    ========================= */
+
+    .click-heart {
+      position: fixed;
+
+      pointer-events: none;
+
+      color: var(--pink);
+
+      font-size: 18px;
+
+      z-index: 999;
+
+      animation:
+        heartPop 1s forwards;
+    }
+
+    @keyframes heartPop {
+      0% {
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.5);
+      }
+
+      100% {
+        opacity: 0;
+
+        transform:
+          translate(-50%, -90px)
+          scale(1.5);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding-top: 150px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero-art {
+        min-height: 350px;
+      }
+
+      .blob {
+        width: 280px;
+        height: 320px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 62px;
+      }
+
+      .hero-art {
+        min-height: 300px;
+      }
+
+      .blob {
+        width: 230px;
+        height: 270px;
+      }
+
+      .big-bow {
+        font-size: 70px;
+      }
+
+      .project-card {
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="card">
+  <!-- Floating decorations -->
 
-<div class="decor">
-🎀💗🌸
-</div>
-
-<h1>Nancy</h1>
-
-<p>
-i am a senior high school student at BJEA and will pursue my undergraduate studies abroad, majoring in Social Science or Psychology.
-</p>
-
-<div class="email">
-💌 nancycong081031@gmail.com
-</div>
-
-<button onclick="toggleMode()">
-✨ Pink Mode
-</button>
-
-</div>
+  <div class="decor heart-1">♡</div>
+  <div class="decor heart-2">♥</div>
+  <div class="decor bow-1">🎀</div>
+  <div class="decor butterfly-1">🦋</div>
 
 
-<script>
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
-function toggleMode(){
-    document.body.classList.toggle("dark");
-}
+  <nav>
 
-</script>
+    <a href="#home" class="logo">
+      Nancy ♡
+    </a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button
+      class="theme-btn"
+      id="themeBtn"
+      aria-label="Toggle dark mode">
+    </button>
+
+  </nav>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+      <div class="container hero-inner">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            ♡ Hello, I'm
+          </div>
+
+          <h1>
+            Nancy <span>Cong</span>
+          </h1>
+
+          <p class="tagline">
+            A senior high school student with dreams for the future.
+          </p>
+
+          <p class="hero-description">
+            I am a senior high school student at BJEA and will pursue
+            my undergraduate studies abroad, majoring in Social Science
+            or Psychology.
+          </p>
+
+          <div class="buttons">
+
+            <a
+              href="#projects"
+              class="btn btn-primary">
+              See my project ♡
+            </a>
+
+            <a
+              href="#contact"
+              class="btn btn-secondary">
+              Say hello 💌
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Hero artwork -->
+
+        <div class="hero-art reveal">
+
+          <div class="blob"></div>
+
+          <div class="big-bow">
+            🎀
+          </div>
+
+          <div class="floating-card card-one">
+
+            <strong>
+              Dream big ♡
+            </strong>
+
+            Keep going.
+
+          </div>
+
+          <div class="floating-card card-two">
+
+            🦋 little moments
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT ME
+    ========================= -->
+
+    <section id="about">
+
+      <div class="container about-grid">
+
+        <div class="photo-card reveal">
+
+          <div class="photo-placeholder">
+            ♡
+          </div>
+
+        </div>
+
+
+        <div class="about-copy reveal">
+
+          <div class="section-head">
+
+            <div class="section-kicker">
+              A little about me
+            </div>
+
+            <h2>
+              About <em>Me</em> ♡
+            </h2>
+
+          </div>
+
+
+          <p>
+            I am a senior high school student at BJEA and will pursue
+            my undergraduate studies abroad, majoring in Social Science
+            or Psychology.
+          </p>
+
+
+          <div class="music-note">
+            🎧 I enjoy listening to music and singing. ♫
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
+    <section id="skills">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="section-kicker">
+            A few things I enjoy
+          </div>
+
+          <h2>
+            My <em>Skills</em> 🎀
+          </h2>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+          <article class="skill reveal">
+
+            <div class="skill-icon">
+              📚
+            </div>
+
+            <h3>
+              Learning
+            </h3>
+
+            <p>
+              Exploring new ideas and learning through school.
+            </p>
+
+          </article>
+
+
+          <article class="skill reveal">
+
+            <div class="skill-icon">
+              💭
+            </div>
+
+            <h3>
+              Thinking
+            </h3>
+
+            <p>
+              Taking time to think about questions and ideas.
+            </p>
+
+          </article>
+
+
+          <article class="skill reveal">
+
+            <div class="skill-icon">
+              🎧
+            </div>
+
+            <h3>
+              Music
+            </h3>
+
+            <p>
+              Listening to music and singing in my free time.
+            </p>
+
+          </article>
+
+
+          <article class="skill reveal">
+
+            <div class="skill-icon">
+              🎀
+            </div>
+
+            <h3>
+              Creativity
+            </h3>
+
+            <p>
+              Turning simple ideas into small personal projects.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-head reveal">
+
+          <div class="section-kicker">
+            Things I've made
+          </div>
+
+          <h2>
+            My <em>Projects</em> 🦋
+          </h2>
+
+        </div>
+
+
+        <article class="project-card reveal">
+
+          <!-- Project preview -->
+
+          <div class="project-preview">
+
+            <div class="mini-check">
+
+              <h4>
+                ♡ Evening Study Checklist
+              </h4>
+
+              <div class="mini-row">
+                ☑ Review notes
+              </div>
+
+              <div class="mini-row">
+                ☐ Practice questions
+              </div>
+
+              <div class="mini-row">
+                ☐ Organize mistakes
+              </div>
+
+              <div class="mini-row">
+                ☐ Preview tomorrow
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Project information -->
+
+          <div class="project-copy">
+
+            <div class="section-kicker">
+              Personal Project
+            </div>
+
+            <h3>
+              High School Evening Study Checklist 🎀
+            </h3>
+
+            <p>
+              A simple interactive checklist I made to organize
+              my evening study sessions and keep track of the
+              tasks I want to complete each night.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Study
+              </span>
+
+              <span class="tag">
+                Time Management
+              </span>
+
+              <span class="tag">
+                Productivity
+              </span>
+
+              <span class="tag">
+                JavaScript
+              </span>
+
+            </div>
+
+
+            <button
+              class="btn btn-primary"
+              id="openChecklist">
+
+              Open the checklist →
+
+            </button>
+
+          </div>
+
+        </article>
+
+
+        <!-- Interactive checklist -->
+
+        <div
+          class="checklist"
+          id="checklist">
+
+          <div class="checklist-top">
+
+            <div>
+
+              <strong>
+                Tonight's study plan ♡
+              </strong>
+
+              <div
+                style="
+                  color:var(--muted);
+                  font-size:13px;
+                ">
+
+                Check things off as you finish.
+
+              </div>
+
+            </div>
+
+
+            <div
+              class="progress"
+              id="progress">
+
+              0 / 4 done
+
+            </div>
+
+          </div>
+
+
+          <label class="task">
+
+            <input type="checkbox">
+
+            <span>
+              Review today's class notes
+            </span>
+
+            <span class="task-min">
+              30 min
+            </span>
+
+          </label>
+
+
+          <label class="task">
+
+            <input type="checkbox">
+
+            <span>
+              Practice questions
+            </span>
+
+            <span class="task-min">
+              45 min
+            </span>
+
+          </label>
+
+
+          <label class="task">
+
+            <input type="checkbox">
+
+            <span>
+              Organize mistakes
+            </span>
+
+            <span class="task-min">
+              25 min
+            </span>
+
+          </label>
+
+
+          <label class="task">
+
+            <input type="checkbox">
+
+            <span>
+              Preview tomorrow's lessons
+            </span>
+
+            <span class="task-min">
+              20 min
+            </span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section
+      id="contact"
+      class="contact">
+
+      <div class="container">
+
+        <div class="contact-box reveal">
+
+          <div class="section-kicker">
+            Let's connect
+          </div>
+
+          <h2>
+            Say <em>hello</em> 💌
+          </h2>
+
+          <p>
+            Feel free to reach out!
+          </p>
+
+          <a
+            class="email"
+            href="mailto:nancycong081031@gmail.com">
+
+            nancycong081031@gmail.com
+
+          </a>
+
+
+          <div class="contact-decoration">
+            ♡ 🎀 🦋 ♡
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    Made with ♡ by Nancy Cong · BJEA ·
+    <span id="year"></span>
+
+  </footer>
+
+
+  <script>
+
+    /* =========================
+       DARK / LIGHT MODE
+    ========================= */
+
+    const themeBtn =
+      document.getElementById("themeBtn");
+
+    const savedTheme =
+      localStorage.getItem("nancy-theme");
+
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("dark");
+
+      localStorage.setItem(
+        "nancy-theme",
+
+        document.body.classList.contains("dark")
+          ? "dark"
+          : "light"
+      );
+
+    });
+
+
+    /* =========================
+       SCROLL REVEAL ANIMATION
+    ========================= */
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add(
+                "visible"
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: 0.12
+        }
+
+      );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        observer.observe(element);
+
+      });
+
+
+    /* =========================
+       INTERACTIVE CHECKLIST
+    ========================= */
+
+    const openChecklist =
+      document.getElementById(
+        "openChecklist"
+      );
+
+    const checklist =
+      document.getElementById(
+        "checklist"
+      );
+
+    const progress =
+      document.getElementById(
+        "progress"
+      );
+
+    const tasks =
+      [
+        ...document.querySelectorAll(
+          ".task"
+        )
+      ];
+
+
+    openChecklist.addEventListener(
+      "click",
+      () => {
+
+        checklist.classList.toggle(
+          "show"
+        );
+
+        if (
+          checklist.classList.contains(
+            "show"
+          )
+        ) {
+
+          openChecklist.textContent =
+            "Hide checklist ↑";
+
+        } else {
+
+          openChecklist.textContent =
+            "Open the checklist →";
+
+        }
+
+      }
+    );
+
+
+    tasks.forEach((task) => {
+
+      const checkbox =
+        task.querySelector(
+          "input"
+        );
+
+
+      checkbox.addEventListener(
+        "change",
+        () => {
+
+          task.classList.toggle(
+            "done",
+            checkbox.checked
+          );
+
+
+          const done =
+            tasks.filter(
+              (item) =>
+                item.querySelector(
+                  "input"
+                ).checked
+            ).length;
+
+
+          progress.textContent =
+            `${done} / ${tasks.length} done`;
+
+        }
+      );
+
+    });
+
+
+    /* =========================
+       LITTLE FLOATING HEARTS
+    ========================= */
+
+    document.addEventListener(
+      "click",
+      (event) => {
+
+        if (
+          event.target.closest(
+            "button, a, input"
+          )
+        ) {
+          return;
+        }
+
+
+        const heart =
+          document.createElement(
+            "span"
+          );
+
+        heart.className =
+          "click-heart";
+
+        heart.textContent =
+          Math.random() > 0.5
+            ? "♡"
+            : "♥";
+
+
+        heart.style.left =
+          event.clientX + "px";
+
+        heart.style.top =
+          event.clientY + "px";
+
+
+        document.body.appendChild(
+          heart
+        );
+
+
+        setTimeout(
+          () => heart.remove(),
+          1000
+        );
+
+      }
+    );
+
+
+    /* =========================
+       YEAR
+    ========================= */
+
+    document.getElementById(
+      "year"
+    ).textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 </html>
