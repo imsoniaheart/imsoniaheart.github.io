@@ -1,1796 +1,1204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nancy Cong ♡</title>
+<title>Nancy Cong ♡ Portfolio</title>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@500;600;700&family=Pacifico&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
 
-    :root {
-      --bg: #fff8fb;
-      --soft-pink: #fff0f6;
-      --pink: #e85b91;
-      --dark-pink: #c93e73;
-      --light-pink: #ffd8e8;
-      --text: #351c2a;
-      --muted: #80566a;
-      --white: #ffffff;
-      --border: #f5c7d9;
-      --shadow: 0 18px 50px rgba(210, 72, 125, 0.13);
-      --nav: rgba(255, 248, 251, 0.82);
+:root {
+    --pink: #e889ad;
+    --pink-dark: #d45f8d;
+    --pink-light: #fff0f6;
+    --pink-soft: #ffe1ed;
+    --text: #25212a;
+    --text-light: #77717b;
+    --white: #ffffff;
+    --border: rgba(216, 112, 153, 0.18);
+    --shadow: 0 20px 60px rgba(203, 91, 137, 0.13);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--pink-light);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+    --pink-light: #20171d;
+    --white: #2b2027;
+    --text: #fff5f8;
+    --text-light: #c7afb9;
+    --border: rgba(255, 173, 205, 0.18);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--pink);
+    opacity: 0.35;
+    animation: float 5s ease-in-out infinite;
+}
+
+.heart1 {
+    top: 18%;
+    left: 5%;
+    font-size: 28px;
+}
+
+.heart2 {
+    top: 70%;
+    right: 6%;
+    font-size: 35px;
+    animation-delay: 1.5s;
+}
+
+.bow1 {
+    top: 35%;
+    right: 4%;
+    font-size: 30px;
+    animation-delay: 2s;
+}
+
+.bow2 {
+    bottom: 10%;
+    left: 7%;
+    font-size: 25px;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
     }
-
-    body.dark {
-      --bg: #251720;
-      --soft-pink: #351d29;
-      --pink: #ff78ab;
-      --dark-pink: #ff9fc4;
-      --light-pink: #633449;
-      --text: #fff1f7;
-      --muted: #d6aabd;
-      --white: #38232d;
-      --border: #6d4055;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-      --nav: rgba(37, 23, 32, 0.85);
+    50% {
+        transform: translateY(-18px) rotate(5deg);
     }
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 1050px);
+    padding: 13px 18px;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 10px 35px rgba(200, 100, 140, 0.08);
+}
+
+body.dark nav {
+    background: rgba(43,32,39,0.82);
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+    color: var(--pink-dark);
+    text-decoration: none;
+    padding-left: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    transition: color 0.25s;
+}
+
+.nav-links a:hover {
+    color: var(--pink-dark);
+}
+
+.theme-btn {
+    border: none;
+    background: var(--pink-soft);
+    color: var(--pink-dark);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 17px;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: rotate(20deg) scale(1.08);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    width: min(1100px, 90%);
+    margin: auto;
+    padding: 110px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.section-label {
+    color: var(--pink-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px, 5vw, 55px);
+    margin-bottom: 25px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-bow {
+    display: inline-block;
+    font-size: 45px;
+    margin-bottom: 20px;
+    animation: bowBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes bowBounce {
+    0%,100% {
+        transform: rotate(-5deg) scale(1);
     }
-
-    html {
-      scroll-behavior: smooth;
+    50% {
+        transform: rotate(5deg) scale(1.08);
     }
+}
 
-    body {
-      font-family: "DM Sans", sans-serif;
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(255, 190, 216, 0.35),
-          transparent 22%
-        ),
-        radial-gradient(
-          circle at 90% 30%,
-          rgba(255, 210, 230, 0.35),
-          transparent 25%
-        ),
-        var(--bg);
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(60px, 11vw, 115px);
+    line-height: 0.95;
+    color: var(--text);
+}
 
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-      transition: 0.35s;
+.hero h1 span {
+    color: var(--pink-dark);
+}
+
+.tagline {
+    margin: 30px auto;
+    max-width: 620px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 10px 25px rgba(216, 104, 146, 0.25);
+}
+
+.btn-primary:hover {
+    background: var(--pink-dark);
+    transform: translateY(-4px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--white);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-4px);
+    border-color: var(--pink);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 45px;
+    box-shadow: var(--shadow);
+}
+
+.about-card p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-light);
+}
+
+.about-card .music {
+    margin-top: 22px;
+    color: var(--pink-dark);
+    font-weight: 600;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.skill {
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 14px 22px;
+    border-radius: 30px;
+    color: var(--pink-dark);
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(200,100,140,0.06);
+    transition: transform 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 32px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 30px 70px rgba(200, 90, 135, 0.16);
+}
+
+.project-number {
+    color: var(--pink-dark);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.project-icon {
+    font-size: 40px;
+    margin: 15px 0;
+}
+
+.project-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.project-open {
+    margin-top: 25px;
+    border: none;
+    background: var(--pink);
+    color: white;
+    padding: 13px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.project-open:hover {
+    background: var(--pink-dark);
+    transform: translateX(5px);
+}
+
+/* =========================
+   SELF STUDY PROJECT
+========================= */
+
+.study-project {
+    display: none;
+    margin-top: 35px;
+    background: var(--pink-light);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 35px;
+    animation: projectOpen 0.5s ease;
+}
+
+.study-project.active {
+    display: block;
+}
+
+@keyframes projectOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
     }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    button {
-      font-family: inherit;
-    }
+.study-title {
+    text-align: center;
+    color: #c85a84;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
 
-    .container {
-      width: min(1080px, 90%);
-      margin: auto;
-    }
+.study-title::before {
+    content: "♡ ";
+}
 
-    /* =========================
-       NAVIGATION
-    ========================= */
+.study-title::after {
+    content: " ♡";
+}
+
+.study-input-area {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.study-input {
+    padding: 11px;
+    border: 1px solid #f2c6d8;
+    border-radius: 10px;
+    font-size: 15px;
+    outline-color: #e889b0;
+    background: var(--white);
+    color: var(--text);
+}
+
+#taskName {
+    flex: 1;
+    min-width: 190px;
+}
+
+#taskMin {
+    width: 120px;
+}
+
+#addBtn {
+    padding: 11px 18px;
+    background-color: #e878a2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+#addBtn:hover {
+    background-color: #d45c8b;
+    transform: translateY(-2px);
+}
+
+.study-stat {
+    background: var(--white);
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
+    font-size: 16px;
+    color: #b04b75;
+}
+
+.study-stat::before {
+    content: "♡ Remaining study time: ";
+}
+
+.task-list {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(200,100,140,0.1);
+    overflow: hidden;
+}
+
+.task-item {
+    padding: 14px 20px;
+    border-bottom: 1px solid #ffe6ef;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-name {
+    flex: 1;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.task-min {
+    color: #c2678c;
+}
+
+.completed .task-name {
+    text-decoration: line-through;
+    color: #d8a1b6;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #e878a2;
+}
+
+.close-project {
+    display: block;
+    margin: 22px auto 0;
+    border: none;
+    background: transparent;
+    color: var(--pink-dark);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    text-align: center;
+    padding-bottom: 130px;
+}
+
+.contact-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 35px;
+    padding: 65px 30px;
+    box-shadow: var(--shadow);
+}
+
+.contact-box p {
+    color: var(--text-light);
+    margin-bottom: 25px;
+}
+
+.email {
+    display: inline-block;
+    color: var(--pink-dark);
+    font-size: clamp(17px, 3vw, 23px);
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.email:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--text-light);
+    font-size: 12px;
+}
+
+footer span {
+    color: var(--pink-dark);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 750px) {
 
     nav {
-      position: fixed;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(1050px, 92%);
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 11px 16px 11px 23px;
-
-      background: var(--nav);
-      backdrop-filter: blur(18px);
-
-      border: 1px solid var(--border);
-      border-radius: 999px;
-
-      box-shadow: var(--shadow);
-
-      z-index: 100;
-    }
-
-    .logo {
-      font-family: "Pacifico", cursive;
-      color: var(--dark-pink);
-      font-size: 20px;
+        top: 12px;
     }
 
     .nav-links {
-      display: flex;
-      gap: 27px;
+        display: none;
     }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.25s;
-    }
-
-    .nav-links a:hover {
-      color: var(--pink);
-      transform: translateY(-2px);
-    }
-
-    /* Theme toggle */
-
-    .theme-btn {
-      width: 49px;
-      height: 28px;
-
-      border: none;
-      border-radius: 999px;
-
-      background: var(--light-pink);
-
-      cursor: pointer;
-
-      position: relative;
-    }
-
-    .theme-btn::after {
-      content: "☀";
-
-      position: absolute;
-
-      width: 22px;
-      height: 22px;
-
-      top: 3px;
-      left: 4px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 50%;
-
-      background: white;
-
-      font-size: 13px;
-
-      transition: 0.3s;
-    }
-
-    body.dark .theme-btn::after {
-      content: "☾";
-      transform: translateX(18px);
-    }
-
-    /* =========================
-       FLOATING DECORATIONS
-    ========================= */
-
-    .decor {
-      position: fixed;
-      pointer-events: none;
-
-      color: var(--pink);
-
-      opacity: 0.5;
-
-      z-index: 0;
-
-      animation: floating 6s ease-in-out infinite;
-    }
-
-    .heart-1 {
-      left: 3%;
-      top: 20%;
-      font-size: 32px;
-    }
-
-    .heart-2 {
-      right: 4%;
-      top: 62%;
-      font-size: 27px;
-      animation-delay: -2s;
-    }
-
-    .bow-1 {
-      right: 2%;
-      top: 38%;
-      font-size: 40px;
-      animation-delay: -4s;
-    }
-
-    .butterfly-1 {
-      left: 3%;
-      top: 78%;
-      font-size: 30px;
-      animation-delay: -1s;
-    }
-
-    @keyframes floating {
-      0%,
-      100% {
-        transform: translateY(0) rotate(-4deg);
-      }
-
-      50% {
-        transform: translateY(-15px) rotate(5deg);
-      }
-    }
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
 
     section {
-      position: relative;
-      z-index: 1;
-      padding: 105px 0;
+        padding: 85px 0;
     }
-
-    .section-kicker {
-      color: var(--pink);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin-top: 5px;
-
-      font-family: "Playfair Display", serif;
-
-      font-size: clamp(40px, 5vw, 58px);
-
-      line-height: 1.1;
-
-      letter-spacing: -0.035em;
-    }
-
-    h2 em {
-      color: var(--pink);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-
-      display: grid;
-      place-items: center;
-
-      padding-top: 130px;
-    }
-
-    .hero-inner {
-      display: grid;
-
-      grid-template-columns: 1.1fr 0.9fr;
-
-      gap: 55px;
-
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--dark-pink);
-
-      font-weight: 700;
-
-      letter-spacing: 0.13em;
-
-      text-transform: uppercase;
-
-      font-size: 12px;
-
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-family: "Playfair Display", serif;
-
-      font-size: clamp(60px, 9vw, 105px);
-
-      line-height: 0.95;
-
-      letter-spacing: -0.055em;
-
-      margin-bottom: 24px;
-    }
-
-    h1 span {
-      color: var(--pink);
-      font-style: italic;
-    }
-
-    .tagline {
-      font-family: "Playfair Display", serif;
-
-      font-size: clamp(20px, 3vw, 29px);
-
-      color: var(--muted);
-
-      max-width: 650px;
-
-      margin-bottom: 15px;
-    }
-
-    .hero-description {
-      color: var(--muted);
-
-      max-width: 610px;
-
-      font-size: 16px;
-    }
-
-    .buttons {
-      display: flex;
-
-      gap: 12px;
-
-      margin-top: 28px;
-
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      padding: 12px 20px;
-
-      border-radius: 999px;
-
-      border: 1px solid var(--pink);
-
-      cursor: pointer;
-
-      font-weight: 700;
-
-      transition: 0.25s;
-    }
-
-    .btn-primary {
-      background: var(--pink);
-
-      color: white;
-    }
-
-    .btn-secondary {
-      background: var(--white);
-
-      color: var(--dark-pink);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-
-      box-shadow:
-        0 12px 25px rgba(232, 91, 145, 0.2);
-    }
-
-    /* Hero decoration */
-
-    .hero-art {
-      min-height: 430px;
-
-      position: relative;
-
-      display: grid;
-
-      place-items: center;
-    }
-
-    .blob {
-      width: 340px;
-      height: 390px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffd9e8,
-          #f49abd
-        );
-
-      border-radius:
-        52% 48% 60% 40%
-        /
-        43% 45% 55% 57%;
-
-      transform: rotate(-7deg);
-
-      box-shadow:
-        20px 25px 0 rgba(232, 91, 145, 0.13);
-
-      animation: morph 7s ease-in-out infinite;
-    }
-
-    @keyframes morph {
-      0%,
-      100% {
-        border-radius:
-          52% 48% 60% 40%
-          /
-          43% 45% 55% 57%;
-      }
-
-      50% {
-        border-radius:
-          43% 57% 45% 55%
-          /
-          56% 42% 58% 44%;
-      }
-    }
-
-    .big-bow {
-      position: absolute;
-
-      right: 3%;
-      top: 5%;
-
-      font-size: 100px;
-
-      transform: rotate(10deg);
-
-      animation: bowFloat 4s ease-in-out infinite;
-    }
-
-    @keyframes bowFloat {
-      50% {
-        transform:
-          rotate(5deg)
-          translateY(-12px);
-      }
-    }
-
-    .floating-card {
-      position: absolute;
-
-      background: var(--white);
-
-      border: 1px solid var(--border);
-
-      border-radius: 22px;
-
-      padding: 17px 22px;
-
-      box-shadow: var(--shadow);
-
-      color: var(--muted);
-    }
-
-    .floating-card strong {
-      color: var(--dark-pink);
-
-      display: block;
-
-      font-family: "Pacifico", cursive;
-
-      font-weight: 400;
-    }
-
-    .card-one {
-      left: 0;
-      bottom: 35px;
-
-      transform: rotate(-5deg);
-    }
-
-    .card-two {
-      right: 0;
-      bottom: 85px;
-
-      transform: rotate(5deg);
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
 
     .about-grid {
-      display: grid;
-
-      grid-template-columns: 0.75fr 1.25fr;
-
-      gap: 60px;
-
-      align-items: center;
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
-    .photo-card {
-      background: var(--light-pink);
-
-      border: 1px solid var(--border);
-
-      border-radius: 30px;
-
-      padding: 25px;
-
-      transform: rotate(-3deg);
-
-      box-shadow: var(--shadow);
+    .about-card {
+        padding: 30px;
     }
 
-    .photo-placeholder {
-      min-height: 330px;
-
-      border-radius: 22px;
-
-      display: grid;
-
-      place-items: center;
-
-      background:
-        linear-gradient(
-          135deg,
-          #ffe3ee,
-          #f5a5c4
-        );
-
-      font-size: 80px;
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 
-    .about-copy p {
-      color: var(--muted);
-
-      margin-top: 22px;
-
-      font-size: 18px;
+    .study-project {
+        padding: 20px;
     }
 
-    .music-note {
-      margin-top: 22px;
-
-      color: var(--dark-pink);
-
-      font-weight: 700;
-
-      font-size: 18px;
+    .study-input-area {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    /* =========================
-       SKILLS
-    ========================= */
-
-    .section-head {
-      margin-bottom: 40px;
+    #taskName,
+    #taskMin,
+    #addBtn {
+        width: 100%;
     }
 
-    .skills-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 17px;
-    }
-
-    .skill {
-      background: var(--white);
-
-      border: 1px solid var(--border);
-
-      border-radius: 23px;
-
-      padding: 25px;
-
-      box-shadow: var(--shadow);
-
-      transition: 0.25s;
-    }
-
-    .skill:hover {
-      transform:
-        translateY(-8px)
-        rotate(-1deg);
-    }
-
-    .skill-icon {
-      font-size: 32px;
-
-      margin-bottom: 12px;
-    }
-
-    .skill h3 {
-      margin-bottom: 7px;
-    }
-
-    .skill p {
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       PROJECT
-    ========================= */
-
-    .project-card {
-      display: grid;
-
-      grid-template-columns:
-        0.8fr 1.2fr;
-
-      gap: 30px;
-
-      align-items: stretch;
-
-      background: var(--white);
-
-      border: 1px solid var(--border);
-
-      border-radius: 30px;
-
-      padding: 25px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .project-preview {
-      border-radius: 23px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #fff0f6,
-          #ffd0e3
-        );
-
-      padding: 25px;
-
-      min-height: 300px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-    }
-
-    .mini-check {
-      width: 100%;
-
-      background: white;
-
-      border-radius: 18px;
-
-      padding: 20px;
-
-      box-shadow:
-        0 10px 25px
-        rgba(180, 65, 110, 0.12);
-    }
-
-    .mini-check h4 {
-      color: #b13e6b;
-
-      margin-bottom: 12px;
-    }
-
-    .mini-row {
-      display: flex;
-
-      gap: 9px;
-
-      padding: 9px 0;
-
-      border-bottom:
-        1px solid #ffe1ec;
-
-      font-size: 13px;
-    }
-
-    .mini-row:last-child {
-      border-bottom: none;
-    }
-
-    .project-copy {
-      padding: 15px 10px;
-    }
-
-    .project-copy h3 {
-      font-family: "Playfair Display", serif;
-
-      font-size: 32px;
-
-      margin: 8px 0 12px;
-    }
-
-    .project-copy p {
-      color: var(--muted);
-
-      margin-bottom: 18px;
-    }
-
-    .tags {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 8px;
-
-      margin-bottom: 23px;
-    }
-
-    .tag {
-      padding: 6px 11px;
-
-      background: var(--light-pink);
-
-      color: var(--dark-pink);
-
-      border-radius: 999px;
-
-      font-size: 12px;
-
-      font-weight: 700;
-    }
-
-    /* =========================
-       INTERACTIVE CHECKLIST
-    ========================= */
-
-    .checklist {
-      display: none;
-
-      margin-top: 25px;
-
-      background: var(--white);
-
-      border: 1px solid var(--border);
-
-      border-radius: 25px;
-
-      padding: 24px;
-
-      box-shadow: var(--shadow);
-    }
-
-    .checklist.show {
-      display: block;
-
-      animation: fadeUp 0.5s both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .checklist-top {
-      display: flex;
-
-      justify-content: space-between;
-
-      margin-bottom: 15px;
-    }
-
-    .progress {
-      color: var(--dark-pink);
-
-      font-weight: 700;
-    }
-
-    .task {
-      display: flex;
-
-      align-items: center;
-
-      gap: 12px;
-
-      padding: 13px;
-
-      border-bottom:
-        1px solid var(--border);
-    }
-
-    .task:last-child {
-      border-bottom: none;
-    }
-
-    .task input {
-      width: 18px;
-      height: 18px;
-
-      accent-color: var(--pink);
-    }
-
-    .task.done span {
-      text-decoration: line-through;
-
-      opacity: 0.5;
+    .task-item {
+        padding: 13px;
     }
 
     .task-min {
-      margin-left: auto;
-
-      color: var(--muted);
-
-      font-size: 13px;
+        font-size: 13px;
     }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-      text-align: center;
-
-      padding-bottom: 80px;
-    }
-
-    .contact-box {
-      background: var(--light-pink);
-
-      border: 1px solid var(--border);
-
-      border-radius: 32px;
-
-      padding: 60px 25px;
-
-      position: relative;
-
-      overflow: hidden;
-    }
-
-    .contact-box p {
-      color: var(--muted);
-
-      margin: 15px auto 25px;
-
-      max-width: 600px;
-    }
-
-    .email {
-      display: inline-block;
-
-      color: var(--dark-pink);
-
-      font-weight: 700;
-
-      font-size: clamp(17px, 3vw, 24px);
-
-      border-bottom:
-        2px solid var(--pink);
-
-      padding-bottom: 4px;
-    }
-
-    .contact-decoration {
-      font-size: 32px;
-
-      margin-top: 22px;
-    }
-
-    footer {
-      text-align: center;
-
-      color: var(--muted);
-
-      font-size: 13px;
-
-      padding-bottom: 30px;
-    }
-
-    /* =========================
-       SCROLL ANIMATION
-    ========================= */
-
-    .reveal {
-      opacity: 0;
-
-      transform: translateY(35px);
-
-      transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-
-      transform: none;
-    }
-
-    /* =========================
-       FLOATING CLICK HEARTS
-    ========================= */
-
-    .click-heart {
-      position: fixed;
-
-      pointer-events: none;
-
-      color: var(--pink);
-
-      font-size: 18px;
-
-      z-index: 999;
-
-      animation:
-        heartPop 1s forwards;
-    }
-
-    @keyframes heartPop {
-      0% {
-        opacity: 1;
-
-        transform:
-          translate(-50%, -50%)
-          scale(0.5);
-      }
-
-      100% {
-        opacity: 0;
-
-        transform:
-          translate(-50%, -90px)
-          scale(1.5);
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-
-        padding-top: 150px;
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card {
-        grid-template-columns: 1fr;
-      }
-
-      .skills-grid {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-      section {
-        padding: 80px 0;
-      }
-
-      .hero-art {
-        min-height: 350px;
-      }
-
-      .blob {
-        width: 280px;
-        height: 320px;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 62px;
-      }
-
-      .hero-art {
-        min-height: 300px;
-      }
-
-      .blob {
-        width: 230px;
-        height: 270px;
-      }
-
-      .big-bow {
-        font-size: 70px;
-      }
-
-      .project-card {
-        padding: 15px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Floating decorations -->
+<!-- Floating decorations -->
+<div class="decor heart1">♡</div>
+<div class="decor heart2">♥</div>
+<div class="decor bow1">🎀</div>
+<div class="decor bow2">♡</div>
 
-  <div class="decor heart-1">♡</div>
-  <div class="decor heart-2">♥</div>
-  <div class="decor bow-1">🎀</div>
-  <div class="decor butterfly-1">🦋</div>
+<!-- NAV -->
+<nav>
+    <a href="#home" class="logo">Nancy ♡</a>
 
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
+    <button class="theme-btn" id="themeBtn">☾</button>
+</nav>
 
-  <nav>
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content reveal">
 
-    <a href="#home" class="logo">
-      Nancy ♡
-    </a>
+        <div class="hero-bow">🎀</div>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+        <h1>
+            Hi, I'm <span>Nancy</span> ♡
+        </h1>
+
+        <p class="tagline">
+            A student, a learner, and someone who is always curious
+            about people, ideas, and the world around me.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+                Explore My Projects ♡
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+                Say Hello
+            </a>
+        </div>
+
     </div>
+</section>
 
-    <button
-      class="theme-btn"
-      id="themeBtn"
-      aria-label="Toggle dark mode">
-    </button>
+<!-- ABOUT -->
+<section id="about">
 
-  </nav>
+    <div class="section-label reveal">01 — About Me</div>
 
-
-  <main>
-
-    <!-- =========================
-         HERO
-    ========================= -->
-
-    <section class="hero" id="home">
-
-      <div class="container hero-inner">
+    <div class="about-grid">
 
         <div class="reveal">
-
-          <div class="eyebrow">
-            ♡ Hello, I'm
-          </div>
-
-          <h1>
-            Nancy <span>Cong</span>
-          </h1>
-
-          <p class="tagline">
-            A senior high school student with dreams for the future.
-          </p>
-
-          <p class="hero-description">
-            I am a senior high school student at BJEA and will pursue
-            my undergraduate studies abroad, majoring in Social Science
-            or Psychology.
-          </p>
-
-          <div class="buttons">
-
-            <a
-              href="#projects"
-              class="btn btn-primary">
-              See my project ♡
-            </a>
-
-            <a
-              href="#contact"
-              class="btn btn-secondary">
-              Say hello 💌
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- Hero artwork -->
-
-        <div class="hero-art reveal">
-
-          <div class="blob"></div>
-
-          <div class="big-bow">
-            🎀
-          </div>
-
-          <div class="floating-card card-one">
-
-            <strong>
-              Dream big ♡
-            </strong>
-
-            Keep going.
-
-          </div>
-
-          <div class="floating-card card-two">
-
-            🦋 little moments
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT ME
-    ========================= -->
-
-    <section id="about">
-
-      <div class="container about-grid">
-
-        <div class="photo-card reveal">
-
-          <div class="photo-placeholder">
-            ♡
-          </div>
-
-        </div>
-
-
-        <div class="about-copy reveal">
-
-          <div class="section-head">
-
-            <div class="section-kicker">
-              A little about me
-            </div>
-
-            <h2>
-              About <em>Me</em> ♡
+            <h2 class="section-title">
+                A little<br>
+                about me.
             </h2>
+        </div>
 
-          </div>
+        <div class="about-card reveal">
 
+            <p>
+                I am a senior high school student at BJEA and will pursue
+                my undergraduate studies abroad, majoring in Social Science
+                or Psychology.
+            </p>
 
-          <p>
-            I am a senior high school student at BJEA and will pursue
-            my undergraduate studies abroad, majoring in Social Science
-            or Psychology.
-          </p>
-
-
-          <div class="music-note">
-            🎧 I enjoy listening to music and singing. ♫
-          </div>
+            <p class="music">
+                ♡ I also love listening to music and singing.
+            </p>
 
         </div>
 
-      </div>
+    </div>
 
-    </section>
+</section>
 
+<!-- SKILLS -->
+<section id="skills">
 
-    <!-- =========================
-         SKILLS
-    ========================= -->
+    <div class="section-label reveal">02 — Skills</div>
 
-    <section id="skills">
+    <h2 class="section-title reveal">
+        Things I enjoy
+        <span style="color:#d45f8d;">♡</span>
+    </h2>
 
-      <div class="container">
+    <div class="skills-grid reveal">
 
-        <div class="section-head reveal">
+        <div class="skill">Social Science</div>
+        <div class="skill">Psychology</div>
+        <div class="skill">Research</div>
+        <div class="skill">Writing</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Creative Thinking</div>
+        <div class="skill">Learning</div>
+        <div class="skill">Music ♡</div>
 
-          <div class="section-kicker">
-            A few things I enjoy
-          </div>
+    </div>
 
-          <h2>
-            My <em>Skills</em> 🎀
-          </h2>
+</section>
 
-        </div>
+<!-- PROJECTS -->
+<section id="projects">
 
+    <div class="section-label reveal">03 — Projects</div>
 
-        <div class="skills-grid">
+    <h2 class="section-title reveal">
+        Things I've made 🎀
+    </h2>
 
-          <article class="skill reveal">
+    <!-- PROJECT BRANCHES -->
+    <div class="projects-grid">
 
-            <div class="skill-icon">
-              📚
-            </div>
-
-            <h3>
-              Learning
-            </h3>
-
-            <p>
-              Exploring new ideas and learning through school.
-            </p>
-
-          </article>
-
-
-          <article class="skill reveal">
-
-            <div class="skill-icon">
-              💭
-            </div>
-
-            <h3>
-              Thinking
-            </h3>
-
-            <p>
-              Taking time to think about questions and ideas.
-            </p>
-
-          </article>
-
-
-          <article class="skill reveal">
-
-            <div class="skill-icon">
-              🎧
-            </div>
-
-            <h3>
-              Music
-            </h3>
-
-            <p>
-              Listening to music and singing in my free time.
-            </p>
-
-          </article>
-
-
-          <article class="skill reveal">
-
-            <div class="skill-icon">
-              🎀
-            </div>
-
-            <h3>
-              Creativity
-            </h3>
-
-            <p>
-              Turning simple ideas into small personal projects.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
-    <section id="projects">
-
-      <div class="container">
-
-        <div class="section-head reveal">
-
-          <div class="section-kicker">
-            Things I've made
-          </div>
-
-          <h2>
-            My <em>Projects</em> 🦋
-          </h2>
-
-        </div>
-
-
-        <article class="project-card reveal">
-
-          <!-- Project preview -->
-
-          <div class="project-preview">
-
-            <div class="mini-check">
-
-              <h4>
-                ♡ Evening Study Checklist
-              </h4>
-
-              <div class="mini-row">
-                ☑ Review notes
-              </div>
-
-              <div class="mini-row">
-                ☐ Practice questions
-              </div>
-
-              <div class="mini-row">
-                ☐ Organize mistakes
-              </div>
-
-              <div class="mini-row">
-                ☐ Preview tomorrow
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- Project information -->
-
-          <div class="project-copy">
-
-            <div class="section-kicker">
-              Personal Project
-            </div>
-
-            <h3>
-              High School Evening Study Checklist 🎀
-            </h3>
-
-            <p>
-              A simple interactive checklist I made to organize
-              my evening study sessions and keep track of the
-              tasks I want to complete each night.
-            </p>
-
-
-            <div class="tags">
-
-              <span class="tag">
-                Study
-              </span>
-
-              <span class="tag">
-                Time Management
-              </span>
-
-              <span class="tag">
-                Productivity
-              </span>
-
-              <span class="tag">
-                JavaScript
-              </span>
-
-            </div>
-
-
-            <button
-              class="btn btn-primary"
-              id="openChecklist">
-
-              Open the checklist →
-
-            </button>
-
-          </div>
-
-        </article>
-
-
-        <!-- Interactive checklist -->
-
-        <div
-          class="checklist"
-          id="checklist">
-
-          <div class="checklist-top">
+        <!-- PROJECT 01 -->
+        <div class="project-card reveal">
 
             <div>
 
-              <strong>
-                Tonight's study plan ♡
-              </strong>
+                <div class="project-number">01</div>
 
-              <div
-                style="
-                  color:var(--muted);
-                  font-size:13px;
-                ">
+                <div class="project-icon">♡</div>
 
-                Check things off as you finish.
+                <h3>Self-study List</h3>
 
-              </div>
+                <p>
+                    A simple tool that helps me plan and organize
+                    my evening self-study sessions.
+                </p>
 
             </div>
 
-
-            <div
-              class="progress"
-              id="progress">
-
-              0 / 4 done
-
-            </div>
-
-          </div>
-
-
-          <label class="task">
-
-            <input type="checkbox">
-
-            <span>
-              Review today's class notes
-            </span>
-
-            <span class="task-min">
-              30 min
-            </span>
-
-          </label>
-
-
-          <label class="task">
-
-            <input type="checkbox">
-
-            <span>
-              Practice questions
-            </span>
-
-            <span class="task-min">
-              45 min
-            </span>
-
-          </label>
-
-
-          <label class="task">
-
-            <input type="checkbox">
-
-            <span>
-              Organize mistakes
-            </span>
-
-            <span class="task-min">
-              25 min
-            </span>
-
-          </label>
-
-
-          <label class="task">
-
-            <input type="checkbox">
-
-            <span>
-              Preview tomorrow's lessons
-            </span>
-
-            <span class="task-min">
-              20 min
-            </span>
-
-          </label>
+            <button class="project-open" id="openStudy">
+                Open Project →
+            </button>
 
         </div>
 
-      </div>
+        <!-- PROJECT 02 -->
+        <div class="project-card reveal">
 
-    </section>
+            <div>
 
+                <div class="project-number">02</div>
+
+                <div class="project-icon">✦</div>
+
+                <h3>Coming Soon</h3>
+
+                <p>
+                    More projects and ideas will be added here.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 03 -->
+        <div class="project-card reveal">
+
+            <div>
+
+                <div class="project-number">03</div>
+
+                <div class="project-icon">☾</div>
+
+                <h3>In Progress</h3>
+
+                <p>
+                    Something new is currently taking shape.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- =========================
-         CONTACT
-    ========================= -->
+         SELF STUDY LIST BRANCH
+    ========================== -->
 
-    <section
-      id="contact"
-      class="contact">
+    <div class="study-project" id="studyProject">
 
-      <div class="container">
+        <h2 class="study-title">
+            High School Evening Self-study List
+        </h2>
 
-        <div class="contact-box reveal">
+        <div class="study-input-area">
 
-          <div class="section-kicker">
-            Let's connect
-          </div>
+            <input
+                class="study-input"
+                id="taskName"
+                placeholder="Enter a study task, e.g. Math review"
+            >
 
-          <h2>
-            Say <em>hello</em> 💌
-          </h2>
+            <input
+                class="study-input"
+                id="taskMin"
+                placeholder="Minutes (1–180)"
+                type="number"
+            >
 
-          <p>
-            Feel free to reach out!
-          </p>
-
-          <a
-            class="email"
-            href="mailto:nancycong081031@gmail.com">
-
-            nancycong081031@gmail.com
-
-          </a>
-
-
-          <div class="contact-decoration">
-            ♡ 🎀 🦋 ♡
-          </div>
+            <button id="addBtn">
+                Add Task 💗
+            </button>
 
         </div>
 
-      </div>
+        <div class="study-stat">
+            <span id="totalMin">0</span> minutes
+        </div>
 
-    </section>
+        <div class="task-list" id="taskListWrap"></div>
 
-  </main>
+        <button class="close-project" id="closeStudy">
+            Close Project ↑
+        </button>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+    <div class="section-label reveal">
+        04 — Contact
+    </div>
+
+    <div class="contact-box reveal">
+
+        <div style="font-size:45px;margin-bottom:15px;">
+            💌
+        </div>
+
+        <h2 class="section-title">
+            Let's connect ♡
+        </h2>
+
+        <p>
+            Feel free to reach out.
+        </p>
+
+        <a
+            class="email"
+            href="mailto:nancycong081031@gmail.com"
+        >
+            nancycong081031@gmail.com
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    Made with <span>♡</span> by Nancy 🎀
+</footer>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+<script>
 
-  <footer>
+/* =========================
+   DARK / LIGHT MODE
+========================= */
 
-    Made with ♡ by Nancy Cong · BJEA ·
-    <span id="year"></span>
+const themeBtn = document.getElementById("themeBtn");
 
-  </footer>
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeBtn.textContent = "☀";
+    } else {
+        themeBtn.textContent = "☾";
+    }
+
+});
 
 
-  <script>
+/* =========================
+   SCROLL ANIMATION
+========================= */
 
-    /* =========================
-       DARK / LIGHT MODE
-    ========================= */
+const reveals = document.querySelectorAll(".reveal");
 
-    const themeBtn =
-      document.getElementById("themeBtn");
+const observer = new IntersectionObserver(
+    (entries) => {
 
-    const savedTheme =
-      localStorage.getItem("nancy-theme");
+        entries.forEach(entry => {
 
-    if (savedTheme === "dark") {
-      document.body.classList.add("dark");
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+reveals.forEach(element => {
+    observer.observe(element);
+});
+
+
+/* =========================
+   OPEN / CLOSE PROJECT
+========================= */
+
+const openStudy = document.getElementById("openStudy");
+const closeStudy = document.getElementById("closeStudy");
+const studyProject = document.getElementById("studyProject");
+
+openStudy.addEventListener("click", () => {
+
+    studyProject.classList.add("active");
+
+    setTimeout(() => {
+
+        studyProject.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }, 100);
+
+});
+
+closeStudy.addEventListener("click", () => {
+
+    studyProject.classList.remove("active");
+
+});
+
+
+/* =========================
+   SELF-STUDY LIST
+   Based on your original code
+========================= */
+
+let tasks = [];
+
+const nameInput = document.getElementById("taskName");
+const minInput = document.getElementById("taskMin");
+const addBtn = document.getElementById("addBtn");
+const listWrap = document.getElementById("taskListWrap");
+const totalDom = document.getElementById("totalMin");
+
+
+function renderList() {
+
+    let unFinishTotal = 0;
+    let html = "";
+
+    tasks.forEach((item, index) => {
+
+        if (!item.completed) {
+            unFinishTotal += item.minutes;
+        }
+
+        html += `
+            <div class="task-item ${item.completed ? "completed" : ""}">
+
+                <input
+                    class="task-checkbox"
+                    type="checkbox"
+                    data-index="${index}"
+                    ${item.completed ? "checked" : ""}
+                >
+
+                <div class="task-name">
+                    ${escapeHTML(item.name)}
+                </div>
+
+                <div class="task-min">
+                    ${item.minutes} min ♡
+                </div>
+
+            </div>
+        `;
+
+    });
+
+    listWrap.innerHTML = html;
+
+    totalDom.textContent = unFinishTotal;
+
+
+    const checkboxes =
+        listWrap.querySelectorAll(".task-checkbox");
+
+
+    checkboxes.forEach(cb => {
+
+        cb.onclick = function() {
+
+            const idx = Number(this.dataset.index);
+
+            tasks[idx].completed = this.checked;
+
+            renderList();
+
+        };
+
+    });
+
+}
+
+
+/* Prevent HTML from being inserted as task text */
+
+function escapeHTML(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   ADD TASK
+========================= */
+
+addBtn.onclick = function() {
+
+    const name = nameInput.value.trim();
+
+    const minStr = minInput.value.trim();
+
+    const minNum = Number(minStr);
+
+
+    if (!name) {
+
+        alert("Please enter a study task.");
+
+        return;
+
     }
 
 
-    themeBtn.addEventListener("click", () => {
+    if (minStr === "" || isNaN(minNum)) {
 
-      document.body.classList.toggle("dark");
+        alert("Please enter a valid study time.");
 
-      localStorage.setItem(
-        "nancy-theme",
+        return;
 
-        document.body.classList.contains("dark")
-          ? "dark"
-          : "light"
-      );
+    }
+
+
+    if (
+        !Number.isInteger(minNum) ||
+        minNum < 1 ||
+        minNum > 180
+    ) {
+
+        alert(
+            "Study time must be an integer between 1 and 180."
+        );
+
+        return;
+
+    }
+
+
+    tasks.push({
+
+        name: name,
+
+        minutes: minNum,
+
+        completed: false
 
     });
 
 
-    /* =========================
-       SCROLL REVEAL ANIMATION
-    ========================= */
+    nameInput.value = "";
 
-    const observer =
-      new IntersectionObserver(
+    minInput.value = "";
 
-        (entries) => {
+    renderList();
 
-          entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-            }
-
-          });
-
-        },
-
-        {
-          threshold: 0.12
-        }
-
-      );
+};
 
 
-    document
-      .querySelectorAll(".reveal")
-      .forEach((element) => {
+/* =========================
+   ENTER KEY SUPPORT
+========================= */
 
-        observer.observe(element);
+nameInput.addEventListener("keydown", function(e) {
 
-      });
+    if (e.key === "Enter") {
+        addBtn.click();
+    }
 
+});
 
-    /* =========================
-       INTERACTIVE CHECKLIST
-    ========================= */
+minInput.addEventListener("keydown", function(e) {
 
-    const openChecklist =
-      document.getElementById(
-        "openChecklist"
-      );
+    if (e.key === "Enter") {
+        addBtn.click();
+    }
 
-    const checklist =
-      document.getElementById(
-        "checklist"
-      );
+});
 
-    const progress =
-      document.getElementById(
-        "progress"
-      );
-
-    const tasks =
-      [
-        ...document.querySelectorAll(
-          ".task"
-        )
-      ];
-
-
-    openChecklist.addEventListener(
-      "click",
-      () => {
-
-        checklist.classList.toggle(
-          "show"
-        );
-
-        if (
-          checklist.classList.contains(
-            "show"
-          )
-        ) {
-
-          openChecklist.textContent =
-            "Hide checklist ↑";
-
-        } else {
-
-          openChecklist.textContent =
-            "Open the checklist →";
-
-        }
-
-      }
-    );
-
-
-    tasks.forEach((task) => {
-
-      const checkbox =
-        task.querySelector(
-          "input"
-        );
-
-
-      checkbox.addEventListener(
-        "change",
-        () => {
-
-          task.classList.toggle(
-            "done",
-            checkbox.checked
-          );
-
-
-          const done =
-            tasks.filter(
-              (item) =>
-                item.querySelector(
-                  "input"
-                ).checked
-            ).length;
-
-
-          progress.textContent =
-            `${done} / ${tasks.length} done`;
-
-        }
-      );
-
-    });
-
-
-    /* =========================
-       LITTLE FLOATING HEARTS
-    ========================= */
-
-    document.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          event.target.closest(
-            "button, a, input"
-          )
-        ) {
-          return;
-        }
-
-
-        const heart =
-          document.createElement(
-            "span"
-          );
-
-        heart.className =
-          "click-heart";
-
-        heart.textContent =
-          Math.random() > 0.5
-            ? "♡"
-            : "♥";
-
-
-        heart.style.left =
-          event.clientX + "px";
-
-        heart.style.top =
-          event.clientY + "px";
-
-
-        document.body.appendChild(
-          heart
-        );
-
-
-        setTimeout(
-          () => heart.remove(),
-          1000
-        );
-
-      }
-    );
-
-
-    /* =========================
-       YEAR
-    ========================= */
-
-    document.getElementById(
-      "year"
-    ).textContent =
-      new Date().getFullYear();
-
-  </script>
+</script>
 
 </body>
 </html>
