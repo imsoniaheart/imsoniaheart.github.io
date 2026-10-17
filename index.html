@@ -1,18 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Nancy Cong ♡</title>
 
-<!-- American-style fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root {
     --pink: #e879a9;
     --hot-pink: #d95791;
@@ -23,7 +21,7 @@
     --muted: #817681;
     --white: #ffffff;
     --card: rgba(255,255,255,0.78);
-    --shadow: 0 20px 60px rgba(214, 104, 150, 0.15);
+    --shadow: 0 20px 60px rgba(214,104,150,0.15);
 }
 
 * {
@@ -47,10 +45,7 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* =========================
-   Floating decorations
-========================= */
-
+/* Floating decorations */
 .decor {
     position: fixed;
     pointer-events: none;
@@ -93,18 +88,11 @@ body {
 }
 
 @keyframes float {
-    0%,100% {
-        transform: translateY(0) rotate(-3deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(4deg);
-    }
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-15px) rotate(4deg); }
 }
 
-/* =========================
-   Navigation
-========================= */
-
+/* Navigation */
 nav {
     position: fixed;
     top: 18px;
@@ -169,10 +157,7 @@ nav {
     transform: rotate(20deg) scale(1.08);
 }
 
-/* =========================
-   General
-========================= */
-
+/* General */
 section {
     width: min(1100px, 90%);
     margin: auto;
@@ -196,10 +181,7 @@ section {
     margin-bottom: 35px;
 }
 
-/* =========================
-   Hero
-========================= */
-
+/* Hero */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -262,10 +244,7 @@ section {
     50% { transform: translateY(8px); }
 }
 
-/* =========================
-   About
-========================= */
-
+/* About */
 .about-box {
     background: var(--card);
     backdrop-filter: blur(15px);
@@ -292,10 +271,7 @@ section {
     font-weight: 600;
 }
 
-/* =========================
-   Skills
-========================= */
-
+/* Skills */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -331,10 +307,7 @@ section {
     line-height: 1.6;
 }
 
-/* =========================
-   Projects
-========================= */
-
+/* Projects */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -395,10 +368,7 @@ section {
     opacity: 0.75;
 }
 
-/* =========================
-   Contact
-========================= */
-
+/* Contact */
 .contact-box {
     text-align: center;
     background: linear-gradient(135deg, #ffe1ed, #fff7fa);
@@ -433,10 +403,7 @@ section {
     box-shadow: 0 12px 25px rgba(217,87,145,0.25);
 }
 
-/* =========================
-   Footer
-========================= */
-
+/* Footer */
 footer {
     text-align: center;
     padding: 40px 20px 55px;
@@ -444,10 +411,7 @@ footer {
     font-size: 13px;
 }
 
-/* =========================
-   Modal — Study List
-========================= */
-
+/* Study List Modal */
 .modal {
     display: none;
     position: fixed;
@@ -615,15 +579,11 @@ footer {
     accent-color: #e878a2;
 }
 
-/* =========================
-   Dark mode
-========================= */
-
+/* Dark mode */
 body.dark {
     --text: #f9edf3;
     --muted: #c6b4bd;
     --card: rgba(50,35,43,0.82);
-
     background:
         radial-gradient(circle at 10% 10%, #492d3b 0, transparent 25%),
         radial-gradient(circle at 90% 20%, #422633 0, transparent 25%),
@@ -659,10 +619,7 @@ body.dark .contact-box {
     background: linear-gradient(135deg, #402633, #2b2025);
 }
 
-/* =========================
-   Scroll animation
-========================= */
-
+/* Scroll animation */
 .reveal {
     opacity: 0;
     transform: translateY(35px);
@@ -674,12 +631,8 @@ body.dark .contact-box {
     transform: translateY(0);
 }
 
-/* =========================
-   Mobile
-========================= */
-
+/* Mobile */
 @media (max-width: 750px) {
-
     nav {
         padding: 12px 16px;
     }
@@ -714,7 +667,6 @@ body.dark .contact-box {
         padding: 25px 18px;
     }
 }
-
 </style>
 </head>
 
@@ -726,11 +678,7 @@ body.dark .contact-box {
 <div class="decor bow1">🎀</div>
 <div class="decor bow2">♡</div>
 
-
-<!-- =========================
-     Navigation
-========================= -->
-
+<!-- Navigation -->
 <nav>
     <div class="logo">Nancy <span>♡</span></div>
 
@@ -744,15 +692,9 @@ body.dark .contact-box {
     <button class="theme-toggle" id="themeToggle">☾</button>
 </nav>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- Hero -->
 <section class="hero" id="home">
-
     <div class="hero-content">
-
         <div class="bow">🎀</div>
 
         <div class="section-label">
@@ -769,24 +711,17 @@ body.dark .contact-box {
         </p>
 
         <p class="hero-note">
-            ✦ Social Science · Psychology · Music ✦
+            ✦ Psychology · Cultural Studies · Communication ✦
         </p>
 
         <div class="scroll">
             ↓ scroll to explore ♡
         </div>
-
     </div>
-
 </section>
 
-
-<!-- =========================
-     ABOUT ME
-========================= -->
-
+<!-- About Me -->
 <section id="about" class="reveal">
-
     <div class="section-label">01 · About Me</div>
 
     <h2 class="section-title">
@@ -794,26 +729,18 @@ body.dark .contact-box {
     </h2>
 
     <div class="about-box">
-
         <p>
-            I am a senior high school student at BJEA and will pursue my undergraduate studies abroad, majoring in Social Science or Psychology.
+            I am a senior high school student at BJEA and will pursue my undergraduate studies abroad, with academic interests in Psychology, Cultural Studies, and Communication.
         </p>
 
         <div class="music">
             🎧 I love listening to music & singing 🎤 ♡
         </div>
-
     </div>
-
 </section>
 
-
-<!-- =========================
-     SKILLS
-========================= -->
-
+<!-- Skills -->
 <section id="skills" class="reveal">
-
     <div class="section-label">02 · Skills</div>
 
     <h2 class="section-title">
@@ -821,7 +748,6 @@ body.dark .contact-box {
     </h2>
 
     <div class="skills-grid">
-
         <div class="skill-card">
             <div class="skill-icon">🧠</div>
             <h3>Psychology</h3>
@@ -845,18 +771,11 @@ body.dark .contact-box {
                 Listening to music and singing are some of my favorite ways to relax and enjoy my time.
             </p>
         </div>
-
     </div>
-
 </section>
 
-
-<!-- =========================
-     PROJECTS
-========================= -->
-
+<!-- Projects -->
 <section id="projects" class="reveal">
-
     <div class="section-label">03 · Projects</div>
 
     <h2 class="section-title">
@@ -864,10 +783,7 @@ body.dark .contact-box {
     </h2>
 
     <div class="projects-grid">
-
-        <!-- PROJECT 01 -->
         <div class="project-card">
-
             <div class="project-number">
                 01 · STUDY TOOL
             </div>
@@ -883,13 +799,9 @@ body.dark .contact-box {
             <button class="project-btn" id="openStudy">
                 Click to open ♡ →
             </button>
-
         </div>
 
-
-        <!-- PROJECT 02 -->
         <div class="project-card coming-soon">
-
             <div class="project-number">
                 02 · COMING SOON
             </div>
@@ -905,22 +817,13 @@ body.dark .contact-box {
             <button class="project-btn" disabled>
                 Coming soon ♡
             </button>
-
         </div>
-
     </div>
-
 </section>
 
-
-<!-- =========================
-     CONTACT
-========================= -->
-
+<!-- Contact -->
 <section id="contact" class="reveal">
-
     <div class="contact-box">
-
         <div class="section-label">
             04 · Contact
         </div>
@@ -939,25 +842,16 @@ body.dark .contact-box {
         >
             💌 nancycong081031@gmail.com
         </a>
-
     </div>
-
 </section>
-
 
 <footer>
     Made with ♡, a little pink, and lots of 🎀
 </footer>
 
-
-<!-- =========================================================
-     EVENING STUDY CHECKLIST MODAL
-========================================================= -->
-
+<!-- Evening Study Checklist Modal -->
 <div class="modal" id="studyModal">
-
     <div class="modal-window">
-
         <button class="close-modal" id="closeStudy">
             ×
         </button>
@@ -967,7 +861,6 @@ body.dark .contact-box {
         </h1>
 
         <div class="input-area">
-
             <input
                 class="study-input"
                 id="taskName"
@@ -984,9 +877,7 @@ body.dark .contact-box {
             <button id="addBtn">
                 添加任务 💗
             </button>
-
         </div>
-
 
         <div class="stat">
             ♡ 剩余复习总时长：
@@ -994,27 +885,18 @@ body.dark .contact-box {
             分钟
         </div>
 
-
         <div
             class="task-list"
             id="taskListWrap"
         ></div>
-
     </div>
-
 </div>
 
-
 <script>
-
-/* =========================================================
-   DARK / LIGHT MODE
-========================================================= */
-
+/* Dark / Light Mode */
 const themeToggle = document.getElementById("themeToggle");
 
 themeToggle.addEventListener("click", function() {
-
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
@@ -1022,117 +904,67 @@ themeToggle.addEventListener("click", function() {
     } else {
         themeToggle.textContent = "☾";
     }
-
 });
 
+/* Scroll Reveal */
+const revealElements = document.querySelectorAll(".reveal");
 
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-const observer =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-
-            });
-
-        },
-        {
-            threshold: 0.15
-        }
-    );
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
 
 revealElements.forEach(element => {
     observer.observe(element);
 });
 
-
-/* =========================================================
-   STUDY LIST MODAL
-========================================================= */
-
-const modal =
-    document.getElementById("studyModal");
-
-const openStudy =
-    document.getElementById("openStudy");
-
-const closeStudy =
-    document.getElementById("closeStudy");
-
+/* Study List Modal */
+const modal = document.getElementById("studyModal");
+const openStudy = document.getElementById("openStudy");
+const closeStudy = document.getElementById("closeStudy");
 
 openStudy.addEventListener("click", function() {
-
     modal.classList.add("active");
-
 });
-
 
 closeStudy.addEventListener("click", function() {
-
     modal.classList.remove("active");
-
 });
 
-
 modal.addEventListener("click", function(event) {
-
     if (event.target === modal) {
         modal.classList.remove("active");
     }
-
 });
 
-
-/* =========================================================
-   ORIGINAL EVENING STUDY CHECKLIST
-========================================================= */
-
+/* Evening Study Checklist */
 let tasks = [];
 
-const nameInput =
-    document.getElementById("taskName");
-
-const minInput =
-    document.getElementById("taskMin");
-
-const addBtn =
-    document.getElementById("addBtn");
-
-const listWrap =
-    document.getElementById("taskListWrap");
-
-const totalDom =
-    document.getElementById("totalMin");
-
+const nameInput = document.getElementById("taskName");
+const minInput = document.getElementById("taskMin");
+const addBtn = document.getElementById("addBtn");
+const listWrap = document.getElementById("taskListWrap");
+const totalDom = document.getElementById("totalMin");
 
 function renderList() {
-
     let unFinishTotal = 0;
-
     let html = "";
 
-
     tasks.forEach((item, index) => {
-
         if (!item.completed) {
             unFinishTotal += item.minutes;
         }
 
-
         html += `
-
             <div class="task-item ${item.completed ? "completed" : ""}">
-
                 <input
                     class="task-check"
                     type="checkbox"
@@ -1147,151 +979,82 @@ function renderList() {
                 <div class="task-min">
                     ${item.minutes}分钟 ♡
                 </div>
-
             </div>
-
         `;
-
     });
-
 
     listWrap.innerHTML = html;
-
     totalDom.textContent = unFinishTotal;
 
-
-    const checkboxes =
-        listWrap.querySelectorAll(
-            ".task-check"
-        );
-
+    const checkboxes = listWrap.querySelectorAll(".task-check");
 
     checkboxes.forEach(cb => {
-
         cb.onclick = function() {
-
-            const idx =
-                Number(this.dataset.index);
-
-            tasks[idx].completed =
-                this.checked;
-
+            const idx = Number(this.dataset.index);
+            tasks[idx].completed = this.checked;
             renderList();
-
         };
-
     });
-
 }
-
 
 /* Prevent HTML from being inserted into task names */
-
 function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
+    const div = document.createElement("div");
     div.textContent = text;
-
     return div.innerHTML;
-
 }
 
-
-/* ADD TASK */
-
+/* Add Task */
 addBtn.onclick = function() {
-
-    const name =
-        nameInput.value.trim();
-
-    const minStr =
-        minInput.value.trim();
-
-    const minNum =
-        Number(minStr);
-
+    const name = nameInput.value.trim();
+    const minStr = minInput.value.trim();
+    const minNum = Number(minStr);
 
     if (!name) {
-
         alert("任务名称不能为空！");
-
         return;
-
     }
 
-
-    if (
-        minStr === "" ||
-        isNaN(minNum)
-    ) {
-
+    if (minStr === "" || isNaN(minNum)) {
         alert("请填写有效的时长！");
-
         return;
-
     }
-
 
     if (
         !Number.isInteger(minNum) ||
         minNum < 1 ||
         minNum > 180
     ) {
-
-        alert(
-            "时长必须是1~180之间的整数！"
-        );
-
+        alert("时长必须是1~180之间的整数！");
         return;
-
     }
 
-
     tasks.push({
-
         name: name,
-
         minutes: minNum,
-
         completed: false
-
     });
 
-
     nameInput.value = "";
-
     minInput.value = "";
-
     renderList();
-
 };
 
-
-/* ENTER KEY SUPPORT */
-
+/* Enter Key Support */
 nameInput.addEventListener("keydown", function(e) {
-
     if (e.key === "Enter") {
         addBtn.click();
     }
-
 });
 
 minInput.addEventListener("keydown", function(e) {
-
     if (e.key === "Enter") {
         addBtn.click();
     }
-
 });
 
-
-/* Initial render */
-
+/* Initial Render */
 renderList();
-
 </script>
 
 </body>
